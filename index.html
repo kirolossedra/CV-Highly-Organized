@@ -1608,8 +1608,8 @@
         <h1>Your complete CV library, ready as PDF.</h1>
 
         <p>
-          Browse every career category recursively and download a freshly compiled,
-          timestamped PDF from any LaTeX CV in the
+          Browse every career category recursively and download the latest
+          GitHub Actions-built PDF for every CV in the
           <strong>CV-Highly-Organized</strong> repository.
         </p>
       </div>
@@ -1623,8 +1623,8 @@
 
         <div class="auth-feature">
           <span data-icon="pdf"></span>
-          <strong>On-demand PDF</strong>
-          <span>Each main.tex file is compiled from the repository when its download button is pressed.</span>
+          <strong>CI-built PDFs</strong>
+          <span>GitHub Actions keeps each sibling main.pdf current, so downloads are immediate and consistent.</span>
         </div>
 
         <div class="auth-feature">
@@ -1806,9 +1806,9 @@
               <h1 id="heroTitle">Career positioning library</h1>
 
               <p id="heroDescription">
-                Open a category, find its LaTeX CV, and press
-                <strong>Download PDF</strong>. The system compiles the selected
-                file and names the result using its folder and the current timestamp.
+                Open a category, choose a CV, and press
+                <strong>Download PDF</strong>. The app fetches the latest
+                GitHub Actions build and names it using its folder and the current timestamp.
               </p>
             </div>
 
@@ -1845,9 +1845,9 @@
           <div class="download-note">
             <span data-icon="pdf"></span>
             <span>
-              PDF generation is started directly from the selected repository
-              <code>main.tex</code>. Compilation may take several seconds before
-              the browser begins the download.
+              Each <code>main.pdf</code> is prebuilt by GitHub Actions and committed
+              beside its source file. This app downloads that verified build directly
+              and applies the folder-and-timestamp filename locally.
             </span>
           </div>
         </section>
@@ -1965,15 +1965,12 @@
       owner: "kirolossedra",
       repo: "CV-Highly-Organized",
       branch: "main",
-      gitUrl: "https://github.com/kirolossedra/CV-Highly-Organized"
     });
 
-    const LATEX_COMPILER_URL = "https://latexonline.cc/compile";
-
     const STORAGE_KEYS = {
-      treeCache: "career-cv-manager-tree-cache-v2",
-      theme: "career-cv-manager-theme-v2",
-      view: "career-cv-manager-view-v2"
+      treeCache: "career-cv-manager-tree-cache-v3",
+      theme: "career-cv-manager-theme-v3",
+      view: "career-cv-manager-view-v3"
     };
 
     const app = initializeApp(firebaseConfig);
@@ -2400,7 +2397,10 @@
           }
         }
 
-        if (entry.type === "blob" && entry.path.toLowerCase().endsWith(".tex")) {
+        if (
+          entry.type === "blob" &&
+          segments.at(-1)?.toLowerCase() === "main.pdf"
+        ) {
           const folderSegments = segments.slice(0, -1);
           const fileName = segments.at(-1);
 
@@ -2419,10 +2419,11 @@
             type: "file",
             name: fileName,
             path: entry.path,
+            sourcePath: [...folderSegments, "main.tex"].join("/"),
             size: entry.size || 0,
             sha: entry.sha || "",
             parentPath: folderSegments.join("/"),
-            parentName: folderSegments.at(-1) || fileName.replace(/\.tex$/i, "")
+            parentName: folderSegments.at(-1) || "CV"
           });
         }
       }
@@ -2645,11 +2646,11 @@
         });
 
         applyTreePayload(tree, syncedAt);
-        setRepositoryStatus("CV-Highly-Organized synchronized", "live");
+        setRepositoryStatus("GitHub Actions PDFs synchronized", "live");
 
         showToast(
           "Repository synchronized",
-          `${state.flatFiles.length} LaTeX CV file${state.flatFiles.length === 1 ? "" : "s"} loaded.`,
+          `${state.flatFiles.length} built CV PDF${state.flatFiles.length === 1 ? "" : "s"} loaded.`,
           "success"
         );
       } catch (error) {
@@ -2989,7 +2990,7 @@
 
       elements.browserSubtitle.textContent = [
         `${childFolders.length} folder${childFolders.length === 1 ? "" : "s"}`,
-        `${files.length} LaTeX CV${files.length === 1 ? "" : "s"}`,
+        `${files.length} built CV PDF${files.length === 1 ? "" : "s"}`,
         folder.path || "Repository root"
       ].join(" · ");
 
@@ -2998,7 +2999,7 @@
 
       elements.heroDescription.textContent =
         folder.path
-          ? `Browse the ${folder.name} category and download any available CV directly as a compiled PDF.`
+          ? `Browse the ${folder.name} category and download its latest GitHub Actions-built CV PDF.`
           : "Browse every engineering and non-engineering CV category from the repository root.";
 
       if (childFolders.length === 0 && files.length === 0) {
@@ -3006,9 +3007,9 @@
           <div class="empty-state">
             <div class="state-content">
               <div class="state-icon">${iconMarkup("folder")}</div>
-              <h3>This folder has no LaTeX CV</h3>
+              <h3>This folder has no built CV PDF</h3>
               <p>
-                No .tex files or subfolders were found at this repository path.
+                No committed <code>main.pdf</code> files or subfolders were found at this repository path.
               </p>
 
               ${
@@ -3165,7 +3166,7 @@
 
                 <div class="item-meta">
                   <span>${formatBytes(item.size)}</span>
-                  <span>Source: ${escapeHtml(item.name)}</span>
+                  <span>Build: ${escapeHtml(item.name)}</span>
                 </div>
 
                 <div class="item-actions" style="grid-template-columns:1fr;">
@@ -3292,47 +3293,102 @@
       return `${folderName}_${buildTimestamp(new Date())}.pdf`;
     }
 
-    function buildCompilationUrl(file, pdfFilename) {
-      const params = new URLSearchParams({
-        git: REPOSITORY.gitUrl,
-        target: file.path,
-        command: "pdflatex",
-        force: "true",
-        download: pdfFilename
-      });
-
-      return `${LATEX_COMPILER_URL}?${params.toString()}`;
+    function rawRepositoryFileUrl(path) {
+      return (
+        "https://raw.githubusercontent.com/" +
+        `${encodeURIComponent(REPOSITORY.owner)}/` +
+        `${encodeURIComponent(REPOSITORY.repo)}/` +
+        `${encodeURIComponent(REPOSITORY.branch)}/` +
+        encodePath(path)
+      );
     }
 
-    function startPdfDownload(file, triggerButton) {
+    async function fetchPdfBlob(file) {
+      const response = await fetch(rawRepositoryFileUrl(file.path), {
+        method: "GET",
+        headers: {
+          Accept: "application/pdf"
+        },
+        cache: "no-store",
+        credentials: "omit",
+        redirect: "follow"
+      });
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error(
+            "The built main.pdf was not found. Sync the repository and confirm the GitHub Actions PDF commit succeeded."
+          );
+        }
+
+        throw new Error(
+          `GitHub PDF download failed with status ${response.status}.`
+        );
+      }
+
+      const blob = await response.blob();
+
+      if (!blob.size) {
+        throw new Error("GitHub returned an empty PDF file.");
+      }
+
+      const signature = await blob.slice(0, 5).text();
+
+      if (signature !== "%PDF-") {
+        throw new Error(
+          "The downloaded repository file is not a valid PDF."
+        );
+      }
+
+      return blob.type === "application/pdf"
+        ? blob
+        : blob.slice(0, blob.size, "application/pdf");
+    }
+
+    async function startPdfDownload(file, triggerButton) {
       const filename = buildPdfFilename(file);
-      const compileUrl = buildCompilationUrl(file, filename);
       const originalContent = triggerButton.innerHTML;
 
       triggerButton.disabled = true;
       triggerButton.innerHTML =
-        `${iconMarkup("refresh")}<span>Starting compiler...</span>`;
+        `${iconMarkup("refresh")}<span>Downloading build...</span>`;
 
-      const anchor = document.createElement("a");
-      anchor.href = compileUrl;
-      anchor.target = "_blank";
-      anchor.rel = "noopener noreferrer";
-      anchor.style.display = "none";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
+      try {
+        const pdfBlob = await fetchPdfBlob(file);
+        const objectUrl = URL.createObjectURL(pdfBlob);
+        const anchor = document.createElement("a");
 
-      showToast(
-        "PDF compilation started",
-        `${filename} will download when the LaTeX compiler finishes. If compilation fails, the opened tab will show the error log.`,
-        "success",
-        7000
-      );
+        anchor.href = objectUrl;
+        anchor.download = filename;
+        anchor.style.display = "none";
 
-      window.setTimeout(() => {
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+
+        window.setTimeout(() => {
+          URL.revokeObjectURL(objectUrl);
+        }, 1500);
+
+        showToast(
+          "PDF downloaded",
+          `${filename} was fetched from the latest committed GitHub Actions build.`,
+          "success",
+          5200
+        );
+      } catch (error) {
+        console.error(error);
+
+        showToast(
+          "Unable to download PDF",
+          error?.message || "The built PDF could not be downloaded.",
+          "error",
+          7000
+        );
+      } finally {
         triggerButton.disabled = false;
         triggerButton.innerHTML = originalContent;
-      }, 1800);
+      }
     }
 
     elements.loginForm.addEventListener("submit", async event => {

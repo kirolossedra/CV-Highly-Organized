@@ -1,0 +1,203 @@
+% Latest commit: Created the CV repository using the newly adopted hierarchical folder structure.
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+%---------- Adjust margins ----------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\setlength{\tabcolsep}{0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Kirolos Sedra} \\ \vspace{2pt}
+    {\large \bfseries RF Testing Engineer} \\ \vspace{6pt}
+    {\small
+
+    Hands-on RF and wireless testing engineer with an interest in building, validating, and troubleshooting wireless systems. Experienced in RF measurements, performance analysis, and test automation, with a strong preference for data-driven engineering decisions, clear technical documentation, and collaborative laboratory environments.
+
+
+    } \\ \vspace{6pt}
+    Waterloo, Ontario (relocatable) \textbar{} Employer-independent Canadian work authorization through French-language immigration pathways; no sponsorship required \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +1 519-580-9685 ~ \href{mailto:kasedra@proton.me}{\raisebox{-0.2\height}\faEnvelope\  \underline{kasedra@proton.me}} ~ 
+    \href{https://linkedin.com/in/kirolossedra}{\raisebox{-0.2\height}\faLinkedin\ \underline{Kirolos Sedra}} 
+    \vspace{-8pt}
+\end{center}
+
+\section{Experience}
+  \resumeSubHeadingListStart
+\resumeSubheading
+  {Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
+  {Wireless Performance Engineer}{Full-time, On-site}
+\resumeItemListStart
+    \resumeItem{\textbf{Built, configured, tested, and troubleshot RF/wireless validation testbeds} across Wi-Fi, BLE, and private 5G SA systems using enterprise/consumer APs, nRF52840 DK boards, Raspberry Pi, TinySA spectrum analyzer, VNA, USRP B210 SDR, srsRAN, Open5GS, and commercial UEs to execute functional and performance testing under controlled procedures}
+
+    \resumeItem{Performed \textbf{RF measurements and electronic test workflows}, including TinySA spectrum-analyzer logging for calibrated power measurements, \textbf{VNA-based antenna characterization and coupling analysis}, attenuation control, 50-ohm matching, channel-gain analysis, polarization effects, waterfall visualization, and controlled anechoic/environmental testing}
+
+\resumeItem{Supported \textbf{hardware setup, inspection, wiring, PCB-level lab work, connector handling, SMA/RF cabling, fixture preparation, and SMT hand-soldering and rework activities} for RF and embedded test setups while applying technical instructions, safety practices, and clean workstation habits}
+
+    \resumeItem{Performed \textbf{root-cause analysis, troubleshooting, documentation, and test-process improvement} by correlating RF signal-quality metrics with throughput, latency, roaming, coexistence, and mobility KPIs; created Python automation, technical reports, performance dashboards, and stakeholder presentations to support repeatable testing and engineering decision-making}
+\resumeItemListEnd
+
+
+
+\resumeSubheading
+  {Aquasensing}{Mar 2026 -- Present}
+  {Firmware Specialist}{Part-time}
+  \resumeItemListStart
+    \resumeItem{\textbf{Product Owner} for a \textbf{BLE--LTE IoT} gateway system, owning the firmware roadmap and leading technical negotiations with telecom partners (including \textbf{Bell IoT}) on specs and pricing for large-scale deployments, while modernizing engineering practices through SDK migration, Git-based version control, and Agile coordination across Azure DevOps and Jira}
+    \resumeItem{Directed \textbf{RF-informed} system validation for IoT gateways, using anechoic chamber testing to diagnose firmware defects and building an \textbf{ESP32-based automated test kit} for blackout detection and end-to-end sanity checks, while applying fintech-grade database safety practices (stored procedures, rollback, logging) to eliminate irreversible production states}
+    \resumeItem{Demonstrated the IoT gateway system to \textbf{12Energy Ltd.}, translating technical functionality into business value through professional stakeholder communication, contributing to a commercial deployment of \textbf{50 gateways}, and continuing post-sale technical support for deployment, validation, and issue resolution}
+
+\resumeItemListEnd
+
+
+
+
+
+
+
+
+
+\resumeSubheading
+  {University of Waterloo}{Feb 2025 -- Apr 2026}
+  {Teaching Assistant}{Part-time, Contract Term-Based}
+  \resumeItemListStart
+    \resumeItem{Teaching Assistant for ECE 106 (Lab, COMSOL), ECE 610 (2 terms, Mininet-based networking project), and ECE 358; responsible for teaching tutorials, proctoring exams, grading assignments/projects, and holding regular office hours}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {G.S Engineering}{May 2024 -- Aug 2024}
+  {Engineer}{Part-time, Remote}
+\resumeItem{Reviewed and interpreted \textbf{architectural, mechanical, HVAC, plumbing, and interior construction drawings} to support engineering reviews, verify design compliance, and coordinate project deliverables across multidisciplinary building systems.}
+
+  \resumeSubHeadingListEnd
+
+
+
+
+
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University of Waterloo}{Sep 2024 -- Aug 2026}
+      {Master of Science in Electrical and Computer Engineering}{Grade: 92\% (A+)}
+
+\resumeSubheading
+  {Ain Shams University}{Sep 2018 -- Jul 2023}
+  {Bachelor of Science in Electrical and Computer Engineering}{CGPA: 3.12/4.00}
+
+
+  \resumeSubHeadingListEnd
+
+
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming:} Python, C/C++, Java \\
+
+     \textbf{Wireless Technologies:} Wi-Fi 6/6E, 5G NR, LTE, BLE, 802.11k/v/r, RADIUS, PMK Caching \\
+
+     \textbf{RF \& Wireless Testing:} SDR (PlutoSDR, USRP), Spectrum Analyzer, Vector Network Analyzer (VNA), Anechoic Chambers, Shielding, Antenna Design \& Orientation, Interference \& Coexistence Testing \\, Ekahau, Wi-Fi planning, Oscilloscope
+
+     \textbf{Network Tools \& Protocols:} Wireshark, ArubaOS, DHCP, DNS, NTP, FTP, HTTPS, TCP/IP, Mininet, SSH \\
+
+     \textbf{Simulation \& Modeling:} MATLAB, Simulink, NS-3, GNU Radio, PreScan \\
+
+     \textbf{Embedded \& Systems:} ESP32(Wi-Fi),Arduino, STM32, Raspberry Pi, LoRa/LoRaWAN, nRF Connect \\
+
+     \textbf{Operating Systems:} Linux, macOS, Raspberry Pi OS
+    }}
+ \end{itemize}
+
+\section{Voluntary Involvement}
+\textbf{IEEE AP-S Chapter} Webmaster and Treasurer. Served as \textbf{Media Lead} and \textbf{Director of Service}, mentoring youth in media leadership. Led a team of 5 to drive \textbf{digital transformation} at a church community by architecting and developing a centralized \textbf{React, TypeScript, and Node.js} web application now adopted congregation-wide. Delivered academic instruction to high school students in orphanages with ongoing mentorship, and conducted weekly outreach supporting underprivileged and homeless communities.
+
+
+
+
+
+
+\section{Soft Skills}
+Fluent in English (C1) with working proficiency in French (B1). Strong interest in emerging technologies and developing intuition for improving end-user experience. Presented graduation projects to a management panel and collaborated daily with a multinational team through both verbal and non-verbal communication.
+
+\end{document}

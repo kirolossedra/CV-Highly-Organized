@@ -1,0 +1,230 @@
+% Latest commit: Created the CV repository using the newly adopted hierarchical folder structure.
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+%---------- Adjust margins ----------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\setlength{\tabcolsep}{0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Kirolos Sedra} \\ \vspace{2pt}
+    {\large \bfseries Embedded Systems \& IoT Engineer } \\ \vspace{6pt}
+    Waterloo, Ontario(Flexible Relocation) \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +1 519-580-9685 ~ \href{mailto:kasedra@proton.me}{\raisebox{-0.2\height}\faEnvelope\  \underline{kasedra@proton.me}} ~ 
+    \href{https://linkedin.com/in/kirolossedra}{\raisebox{-0.2\height}\faLinkedin\ \underline{Kirolos Sedra}} 
+    \vspace{-8pt}
+\end{center}
+
+\section{Experience}
+  \resumeSubHeadingListStart
+\resumeSubheading
+  {Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
+  {Research Assistant}{Full-time, On-site}
+
+\resumeItemListStart
+
+
+
+\item \textbf{Industry-Collaborative Project (Apple)}
+\begin{itemize}[leftmargin=1.5em]
+ \item Owned end-to-end design, execution, and automation of production-representative \textbf{embedded wireless validation} across Aruba, ASUS, and TP-Link APs in controlled anechoic environments; validated roaming, coexistence, fairness, and resource-allocation behavior; reduced manual effort by \textasciitilde70\% through Ethernet-triggered FTP orchestration, Aruba AirRecorder logging, and DNS/DHCP/RADIUS testbed configuration support; and restored DUT test functionality by adapting and integrating an open-source Objective-C DUT application
+   
+    \item Developed RF measurement pipelines using Raspberry Pi and TinySA for calibrated power measurements, analyzing channel gain and polarization effects, and generating waterfall plots for frequency–time behavior, enabling validation against digital twin and theoretical models, the system design was subject to space optimization constraints, and it was configured wirelessly using SSH.
+ 
+
+    \item \textbf{BLE Thresholding and Directional Antenna Validation:} Developed and validated a BLE-based engineering solution using nRF52840 DK boards and a fixed-interval BLE beacon device, combining RSSI thresholding and directional antenna behavior to address a real deployment scenario. Modified and validated Nordic BLE example firmware and supporting scripts to streamline data collection, progressing through component sanity checks, RSSI measurement campaigns, mathematical threshold derivation, and final threshold validation under practical RF conditions
+\end{itemize}
+
+
+\item \textbf{Industry-Collaborative Project (Rogers)}
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Embedded Wireless Testbed Validation:} Built and debugged a private 5G SA embedded wireless testbed using USRP B210 SDR, Quectel RM502Q-AE modem, srsRAN, and Open5GS; validated modem attachment, data connectivity, and traffic flow; debugged RF/link behavior using AT commands, QMI diagnostics, SDR logs, and Linux interface tools; and conducted attenuator, OTA, and mobility experiments measuring throughput, latency under load, RSRP, RSRQ, SINR, MCS, and CQI.
+
+\item \textbf{MASc Thesis: Embedded Wi-Fi/5G Performance Characterization for Mobile Robot Teleoperation} — evaluated Wi-Fi/5G links for mobile robots across indoor, outdoor, single-robot, and mesh scenarios; correlated low-level wireless metrics including MCS, SNR, SINR, RSSI, and modem indicators with P99 latency and throughput; investigated mobility, interference, LTE anchoring, and link degradation; and logged/debugged link behavior using \texttt{iw}, \texttt{nmcli}, \texttt{bluetoothctl}, \texttt{tcpdump}, AT commands, QMI tooling, and Quectel modem interfaces.
+
+
+
+
+\end{itemize}
+
+  \resumeItemListEnd
+
+
+
+\resumeSubheading
+  {Aquasensing}{Mar 2026 -- Present}
+  {Firmware Specialist}{Part-time}
+  \resumeItemListStart
+\resumeItem{Led BLE--LTE IoT product ownership and system integration, driving firmware roadmap, SDK migration testing and rollout, Git-based version control, Agile sprint/test coordination through Azure DevOps, Jira-based feature ownership, and production reliability improvements}
+
+\resumeItem{Directed system-level validation and QA for IoT gateways, organizing reproducible test suites, diagnosing RF-informed issues through anechoic chamber experiments, enforcing gateway documentation using a Python--SQL tool, and introducing an ESP32-based automated test kit for blackout detection and end-to-end sanity checks using GPIO power control, randomized timer pulses, Wi-Fi logging, and POST requests}
+
+\resumeItem{Strengthened production operations and deployment readiness by enforcing stored-procedure-based backend data integrity with logging and rollback mechanisms, evaluating telecom deployment plans with Bell IoT and other partners, using IoT SIM platforms including Hologram MVNO IO and Bell Jasper, and leading software co-op hiring through technical interviews and candidate evaluation}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Aquasensing}{Sep 2024 -- Feb 2026}
+  {Research Intern (Cloud, IoT \& Firmware Systems)}{Part-time}
+  \resumeItemListStart
+ \resumeItem{Developed cloud-integrated IoT application features using React, Django, and Azure for real-time data analytics, device monitoring, and scalable IoT pipeline demonstrations to prospective energy partners including 12Energy and Evergreen}
+
+\resumeItem{Devised QA tests and automated provisioning for 48 IoT gateway units; flashed firmware using J-Link; generated device tokens using Azure CLI; registered devices through Azure IoT Hub; and worked with multiple embedded connectivity combinations including LoRa-to-LoRa using Arduino, LoRaWAN-to-The Things Network, and BLE/LTE}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {University of Waterloo}{Feb 2025 -- Apr 2026}
+  {Teaching Assistant}{Part-time, Contract Term-Based}
+  \resumeItemListStart
+    \resumeItem{Teaching Assistant for ECE 106 (Lab, COMSOL), ECE 610 (2 terms, Mininet-based networking project), and ECE 358; responsible for teaching tutorials, proctoring exams, grading assignments/projects, and holding regular office hours}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Ejada Systems}{Sep 2023 -- Aug 2024}
+  {Software Engineer}{Full-time, Hybrid}
+  \resumeItemListStart
+    \resumeItem{Engineered and optimized REST APIs and backend microservices for fintech systems, ensuring scalable and reliable service integration, collaborating with a multicultural team based in Saudi Arabia on loan-focused products for Al Rajhi Bank and Emkan Governmental Services}
+    \resumeItem{Improved database query performance by 30\% through SQL optimization, indexing, and efficient data access patterns}
+    \resumeItem{Increased API performance by 50\% by eliminating redundant stored procedures and optimizing data retrieval logic}
+    \resumeItem{Developed a BNPL application using Java Spring Boot, handling end-to-end backend logic and system integration}
+  \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+ \section{Publications}
+\resumeSubHeadingListStart
+
+\resumeItem{\textbf{Scalability Analysis of Wi-Fi Broadcast Mechanisms Using Simulation and Hybrid Approaches}}
+
+\resumeItem{\textbf{Trajectory-Based Performance Characterization of Wi-Fi for Outdoor Mobile Robot Teleoperation}}
+
+\resumeSubHeadingListEnd
+
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University of Waterloo}{Sep 2024 -- Aug 2026}
+      {Master of Science in ECE Specialized in Pattern Analysis and Machine Intelligence}{Grade: 92\% (A+)}
+
+\resumeSubheading
+  {Ain Shams University}{Sep 2018 -- Jul 2023}
+  {Bachelor of Science in Computer Engineering}{CGPA: 3.12/4.00}
+  \resumeItemListStart
+    \resumeItem{Graduation Project: Digital twin-based self-driving system (\textbf{Siemens EDA}) using \textbf{Simcenter PreScan}, focused on sensor fusion (RADAR, LiDAR, Camera) and ROS-based integration/testing; Grade: 4.00/4.00}
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming:} Python for scripting, data collection, interfacing with SDR, C/C++, Java \\
+     
+     \textbf{Wireless Technologies:} Wi-Fi 6/6E, 5G NR, LTE, BLE, 802.11k/v/r, RADIUS, PMK Caching \\
+     
+     \textbf{RF \& Wireless Testing:} SDR (PlutoSDR, USRP), Spectrum Analyzer, Vector Network Analyzer (VNA), Anechoic Chambers, Shielding, Antenna Design \& Orientation, Interference \& Coexistence Testing \\
+     
+     \textbf{Network Tools \& Protocols:} Wireshark, ArubaOS, DHCP, DNS, NTP, FTP, HTTPS, TCP/IP, Mininet, SSH \\
+     
+     \textbf{Simulation \& Modeling:} MATLAB, Simulink, NS-3, GNU Radio, PreScan \\
+     
+     \textbf{Embedded \& Systems:} ESP32(Wi-Fi),Arduino, STM32, Raspberry Pi, LoRa/LoRaWAN, nRF Connect \\ Keil, IaR, Segger, JLink Debugging
+     
+     \textbf{Operating Systems:} Linux, macOS, Raspberry, Windows, Windows Server
+    }}
+ \end{itemize}
+
+\section{Voluntary Involvement}
+\textbf{Leadership and Community Service:} IEEE AP-S Chapter Webmaster and Treasurer; Media Lead and Director of Service, mentoring youth in media leadership; built and maintained church management systems; delivered academic instruction to high school students in orphanages and provided ongoing mentorship; conducted weekly outreach supporting underprivileged and homeless communities.
+
+
+\section{Coursework}
+Data and Knowledge Modelling and Analysis; Image Processing; Computational Intelligence; Text Analytics / NLP, Real-Time Operating Systems using FreeRTOS; Computer Architecture; Software Design Patterns.
+
+
+\section{Soft Skills}
+Fluent in English (C1) with working proficiency in French (B1). Strong interest in emerging technologies and developing intuition for improving end-user experience. Presented graduation projects to a management panel and collaborated daily with a multinational team through both verbal and non-verbal communication.
+
+\end{document}

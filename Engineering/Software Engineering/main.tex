@@ -1,0 +1,125 @@
+% Latest commit: Created the CV repository using the newly adopted hierarchical folder structure.
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[margin=0.65in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+
+\IfFileExists{glyphtounicode.tex}{
+  \input{glyphtounicode}
+  \ifdefined\pdfgentounicode
+    \pdfgentounicode=1
+  \fi
+}{}
+
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{8pt}{5pt}
+
+\setlist[itemize]{
+  leftmargin=0.18in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Kirolos Sedra}} \\
+    Software Engineer \\
+    Waterloo, Ontario (Relocatable) \\
+    Employer-independent Canadian work authorization through French-language immigration pathways; no sponsorship required \\
+    +1 519-580-9685 \textbar{}
+    \href{mailto:kasedra@proton.me}{kasedra@proton.me} \textbar{}
+    \href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra}
+\end{center}
+
+\vspace{-4pt}
+
+\section{Professional Summary}
+
+Versatile Software Engineer with experience developing, integrating, testing, and validating systems across fintech and IoT domains. Learns new frameworks, technologies, and business domains quickly, then applies that understanding to build solutions, debug failures, isolate root causes, and translate technical issues into clear actions for non-technical stakeholders and business teams.
+
+\section{Experience}
+
+\resumeSubheading
+{Aquasensing}{Sep 2024 -- Present}
+{Software Engineer}{Part-time, Startup Environment}
+\begin{itemize}
+    \item Led business-facing technical engagements with external partners, including specification and pricing discussions with telecom providers (\textbf{Bell IoT}) for large-scale deployments, and a stakeholder demo for \textbf{12Energy Ltd.} that translated technical capability into business value, contributing to a \textbf{50-gateway} commercial deployment with continued post-sale support.
+    \item Served as \textbf{Product Owner} for a BLE--LTE IoT system, applying \textbf{skill transferability} from corporate software-engineering experience at \textbf{Ejada Systems Ltd.} by enforcing \textbf{Git}-based version control, \textbf{Agile} workflows through Azure DevOps and Jira, disciplined SDK migration practices that resolved long-standing production technical debt, and \textbf{database safeguards}, including stored procedures with logging and rollback, to prevent irreversible production database states.
+    \item Developed software features for cloud-integrated IoT systems, including \textbf{React} front-end features, backend \textbf{APIs} using \textbf{Django} and \textbf{Node.js}, real-time data analytics workflows, and an automated test-and-provisioning suite for a \textbf{70-unit} IoT gateway fleet using \textbf{Azure CLI}.
+\end{itemize}
+
+\resumeSubheading
+{University of Waterloo}{Feb 2025 -- Apr 2026}
+{Teaching Assistant}{Part-time, Contract Term-Based}
+\begin{itemize}
+    \item Teaching Assistant for ECE 106 (Lab, COMSOL), ECE 610 (2 terms, Mininet-based networking project), and ECE 358; responsible for teaching tutorials, proctoring exams, grading assignments/projects, and holding regular office hours.
+\end{itemize}
+
+\resumeSubheading
+{Ejada Systems}{Sep 2023 -- Aug 2024}
+{Software Engineer}{Full-time, Hybrid}
+\begin{itemize}
+    \item Engineered and optimized \textbf{REST APIs} and backend \textbf{microservices} for fintech loan systems using \textbf{Java Spring Boot}, \textbf{SQL}, and \textbf{stored procedures}, supporting products for \textbf{Al Rajhi Bank} and \textbf{Emkan Governmental Services} while collaborating with a multicultural Saudi-based team.
+    \item Architected and developed a new \textbf{BNPL application} for \textbf{Emkan Saudi Arabia} from the ground up in a two-person core team, handling backend architecture, end-to-end business logic, system integration, and frontend support using \textbf{NewGen} and \textbf{JavaScript}.
+    \item Improved backend performance and deployment reliability by achieving \textbf{30\% faster SQL queries} through indexing and query optimization, increasing \textbf{API performance by 50\%} by removing redundant stored procedures, and maintaining rollback scripts, database logging, \textbf{SIT}, feature branches, and production release workflows.
+\end{itemize}
+
+\section{Education}
+
+\resumeSubheading
+{University of Waterloo}{Sep 2024 -- Aug 2026}
+{Master of Science in ECE Specialized in Pattern Analysis and Machine Intelligence}{Grade: 92\% (A+)}
+
+\vspace{4pt}
+
+\resumeSubheading
+{Ain Shams University}{Sep 2018 -- Jul 2023}
+{Bachelor of Science in Computer Engineering}{CGPA: 3.12/4.00}
+
+\section{Technical Skills}
+
+\textbf{Programming:} Python, C/C++, Java, \textbf{JavaScript}, \textbf{TypeScript}, \textbf{SQL}, \textbf{Bash} \\,  \textbf{HTML}, \textbf{css}
+
+\textbf{Backend \& Web Development:} \textbf{Java Spring Boot}, \textbf{Django}, \textbf{Node.js}, \textbf{React}, \textbf{REST APIs}, \textbf{Swagger Documentation}, \textbf{microservices}, backend service integration \\
+
+\textbf{Software Development:} \textbf{Problem solving}, \textbf{LeetCode practice in Java, C++, and SQL}, scripting, automation, debugging, data processing, test tooling, \textbf{API development}, \textbf{database-side debugging}, \textbf{rollback scripting} \\
+
+\textbf{Cloud, DevOps \& Collaboration:} \textbf{Azure}, \textbf{Azure CLI}, \textbf{Azure DevOps}, \textbf{Git}, \textbf{Jira}, \textbf{Docker-based development/test environments} \\
+
+\textbf{Systems \& Networking:} Linux, macOS, TCP/IP, HTTPS, DNS, DHCP, NTP, FTP, SSH
+
+\section{Voluntary Involvement}
+
+\textbf{IEEE AP-S Chapter} Webmaster and Treasurer, using \textbf{WordPress} to manage and maintain chapter web content. Served as \textbf{Media Lead} and \textbf{Director of Service}, mentoring youth in media leadership. Led a team of 5 to drive \textbf{digital transformation} at a church community by architecting and developing a centralized \textbf{React, TypeScript, and Firebase} web application now adopted congregation-wide. Delivered academic instruction to high school students in orphanages with ongoing mentorship, and conducted weekly outreach supporting underprivileged and homeless communities.
+
+\section{Coursework}
+
+Data and Knowledge Modelling and Analysis; Image Processing; Computational Intelligence; Text Analytics / NLP.
+
+\section{Soft Skills}
+
+Fluent in English (C1) with working proficiency in French (B1). Strong interest in emerging technologies and developing intuition for improving end-user experience. Presented graduation projects to a management panel and collaborated daily with a multinational team through both verbal and non-verbal communication.
+
+\end{document}

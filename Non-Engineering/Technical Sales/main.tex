@@ -1,0 +1,225 @@
+% Latest commit: Created the CV repository using the newly adopted hierarchical folder structure.
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+%---------- Adjust margins ----------
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\setlength{\tabcolsep}{0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Kirolos Sedra} \\ \vspace{2pt}
+    {\large \bfseries Junior Technical Sales Engineer} \\ \vspace{6pt}
+    Waterloo, Ontario(relocatable) \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +1 519-580-9685 ~ \href{mailto:kasedra@proton.me}{\raisebox{-0.2\height}\faEnvelope\  \underline{kasedra@proton.me}} ~ 
+    \href{https://linkedin.com/in/kirolossedra}{\raisebox{-0.2\height}\faLinkedin\ \underline{Kirolos Sedra}} 
+    \vspace{-8pt}
+\end{center}
+
+\section{Experience}
+  \resumeSubHeadingListStart
+\resumeSubheading
+  {Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
+  {Research Assistant}{Full-time, On-site}
+
+\resumeItemListStart
+
+\item \textbf{Industry-Collaborative Project (Apple)}
+\begin{itemize}[leftmargin=1.5em]
+
+
+\item Owned end-to-end design and execution of \textbf{production-representative wireless validation} scenarios across enterprise (Aruba) and consumer APs (ASUS, TP-Link) in controlled anechoic environments, covering roaming (802.11r/v, ClientMatch), coexistence, and fairness; \textbf{automated a large-scale testbed} via custom orchestration (Ethernet-triggered FTP, Aruba AirRecorder logging, DNS/DHCP/RADIUS workflows), \textbf{reducing manual intervention by \textasciitilde70\%}; and developed RF measurement pipelines (Raspberry Pi, TinySA) for calibrated power measurement and channel/polarization analysis under space-constrained, SSH-configured deployment conditions
+
+
+
+        \item Developed \textbf{Python}-based tooling for \textbf{automated data collection}, \textbf{post-processing}, and \textbf{performance visualization} across all wireless measurement campaigns, forming the backbone of the \textbf{validation and analysis pipeline}; extended to \textbf{real-time system dashboards} for executive-level demonstrations to \textbf{Senior Vice Presidents} and market-facing stakeholders
+
+
+
+
+  \item \textbf{BLE Thresholding and Directional Antenna Validation:} Developed and validated a BLE-based engineering solution using nRF52840 DK boards and a fixed-interval BLE beacon device, combining RSSI thresholding and directional antenna behavior to address a real deployment scenario. Solved a real engineering cost-optimization question by proposing the replacement of expensive RF shielding with directional antennas and RSSI thresholding, saving approximately tens of thousands of dollars that would otherwise be spent on shielding in a real engineering deployment. Modified and validated Nordic BLE example firmware and supporting scripts to streamline data collection, progressing through component sanity checks, RSSI measurement campaigns, mathematical threshold derivation, and final threshold validation under practical RF conditions.
+
+  \resumeItem{\textbf{Authored and presented 2 papers} on behalf of the lab at \textbf{IEEE CCECE 2026} (Montreal), covering Wi-Fi broadcast scalability analysis and trajectory-based performance characterization of Wi-Fi for outdoor mobile robot teleoperation, sharing system validation campaign results with the broader research and industry community}
+
+
+  
+\end{itemize}
+
+
+\item \textbf{Industry-Collaborative Project (Rogers, in collaboration with UWaterloo RoboHub)}
+\begin{itemize}[leftmargin=1.5em]
+\item Built and validated an end-to-end private \textbf{5G SA} testbed (srsRAN gNB, Open5GS 5GC, USRP B210 SDR, Quectel UE) and led a \textbf{MASc thesis} characterizing Wi-Fi/5G \textbf{latency-under-load} for mobile robot teleoperation, benchmarking deployment-critical KPIs (throughput, latency, RSRP/RSRQ/SINR) across 20+ runs in indoor/outdoor and mobility scenarios to quantify real-world network performance
+
+\item Demonstrated the multi-RAT project results across 2 rounds to a panel of approximately 15 Industry Partner attendees as the robot moved through the demonstration trajectories, highlighting storytelling and technical communication skills by using real-time metrics, not only the static metrics already available, to make the results more accessible and compelling for both technical and non-technical stakeholders
+\end{itemize}
+
+
+
+
+    
+
+
+ 
+
+  \resumeItemListEnd
+
+
+
+\resumeSubheading
+  {Aquasensing}{Sep 2024 -- Present}
+  {Firmware Specialist}{Part-time}
+  \resumeItemListStart
+  \resumeItem{\textbf{Led customer- and partner-facing technical engagements}, including product demonstrations to \textbf{12Energy Ltd.} and \textbf{Evergreen} and specification/pricing discussions with telecom partners (\textbf{Bell IoT}); translated technical capability into business value, supporting a commercial deployment of \textbf{50 IoT gateways} with continued post-sale technical support}
+
+\resumeItem{\textbf{Owned the BLE--LTE IoT product roadmap} as \textbf{Product Owner}, directing SDK migration to resolve production technical debt, coordinating cross-team Agile delivery (Azure DevOps, Jira), and applying enterprise software/database practices (Git, stored procedures with rollback safeguards) to harden systems for production}
+
+\resumeItem{\textbf{Directed field-reliability validation} for IoT gateways, including RF-informed diagnostics (anechoic chamber testing) and a custom ESP32-based automated test kit with documented SOPs, ensuring deployment-ready product quality; also led technical hiring for the engineering team}
+
+
+
+
+  \resumeItemListEnd
+
+
+
+\resumeSubheading
+  {University of Waterloo}{Feb 2025 -- Apr 2026}
+  {Teaching Assistant}{Part-time, Contract Term-Based}
+  \resumeItemListStart
+    \resumeItem{Teaching Assistant for ECE 106 (Lab, COMSOL), ECE 610 (2 terms, Mininet-based networking project), and ECE 358; responsible for teaching tutorials, proctoring exams, grading assignments/projects, and holding regular office hours}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Ejada Systems}{Sep 2023 -- Aug 2024}
+  {Software Engineer}{Full-time, Hybrid}
+  \resumeItemListStart
+   \resumeItem{Engineered and optimized REST APIs and backend microservices for fintech loan products at \textbf{Al Rajhi Bank} and \textbf{Emkan Governmental Services}, collaborating daily with a \textbf{multicultural team across Egypt and Saudi Arabia} to ensure scalable, reliable service integration}
+
+\resumeItem{Architected and built a new \textbf{BNPL application} for \textbf{Emkan Saudi Arabia} from the ground up using \textbf{Java Spring Boot}, owning backend architecture, business logic, and system integration as part of a two-person core team}
+
+\resumeItem{Improved \textbf{database query performance by 30\%} and \textbf{API performance by 50\%} through SQL optimization, stored-procedure design, and rollback/logging safeguards, working across a structured dev-to-production delivery lifecycle (SIT, feature branches, staged environments)}
+  \resumeSubHeadingListEnd
+
+
+
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University of Waterloo}{Sep 2024 -- Aug 2026}
+      {Master of Science in ECE Specialized in Pattern Analysis and Machine Intelligence}{Grade: 92\% (A+)}
+
+\resumeSubheading
+  {Ain Shams University}{Sep 2018 -- Jul 2023}
+  {Bachelor of Science in Computer Engineering}{CGPA: 3.12/4.00}
+  \resumeItemListStart
+  \resumeItem{Graduation Project: Conducted \textbf{product validation} for \textbf{Siemens EDA's Simcenter PreScan} digital-twin platform, testing sensor fusion (RADAR, LiDAR, Camera) and ROS-based integration against real-world self-driving scenarios; Grade: 4.00/4.00}
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+
+\section{Technical Skills}
+\small
+A backend-to-RF technical foundation spanning \textbf{Python, C/C++, and Java} development, hands-on \textbf{wireless and RF testing} (SDR, spectrum analyzers, VNA, anechoic chambers, antenna design, interference and coexistence work across Wi-Fi 6/6E, 5G NR, LTE, and BLE), and \textbf{network-level diagnostics} (Wireshark, ArubaOS, TCP/IP, Mininet). This is paired with \textbf{simulation and modeling} experience (MATLAB, NS-3, GNU Radio), \textbf{embedded systems} work (ESP32, STM32, Raspberry Pi, LoRa/LoRaWAN), and coursework spanning \textbf{AI/ML, software testing, and communications} across Linux and macOS environments. Together, this enables fluency across the full stack of a deployment, from physical-layer RF behavior to backend systems, making it possible to translate deep technical detail into clear, actionable conversations with both engineering and business stakeholders.
+\vspace{-2pt}
+
+\section{Voluntary Involvement}
+\textbf{IEEE AP-S Chapter} Webmaster and Treasurer. Served as \textbf{Media Lead} and \textbf{Director of Service}, mentoring youth in media leadership.Served as both Product Owner and sole Full-Stack Developer for a bilingual church-management platform used by 30+ congregation members by architecting and developing a centralized \textbf{React, TypeScript, and Node.js} web application now adopted congregation-wide. Delivered academic instruction to high school students in orphanages with ongoing mentorship, and conducted weekly outreach supporting underprivileged and homeless communities.
+
+
+
+
+
+
+
+\section{Core Competencies}
+\small
+\textbf{Stakeholder Communication \& Technical Storytelling:} Translated complex technical results into business value for audiences ranging from Senior Vice Presidents to commercial clients (12Energy, Evergreen) and telecom partners (Bell IoT), using real-time data to make technical demonstrations accessible to non-technical stakeholders. \quad
+\textbf{Cross-Cultural Collaboration:} Worked daily within multinational teams spanning Egypt and Saudi Arabia, and in industry-academia partnerships with Apple and Rogers. \quad
+\textbf{Leadership \& Mentorship:} Led technical hiring and interviews for co-op roles; mentored youth in media leadership through IEEE AP-S volunteer work. \quad
+\textbf{Languages:} Fluent in English (C1); working proficiency in French (B1).
+\vspace{-2pt}
+
+\end{document}

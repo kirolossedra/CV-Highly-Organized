@@ -6,10 +6,10 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
-  <meta name="theme-color" content="#08111f">
+  <meta name="theme-color" content="#07101d">
   <meta
     name="description"
-    content="Authenticated browser for a structured GitHub CV repository."
+    content="Authenticated PDF download manager for the CV-Highly-Organized GitHub repository."
   >
 
   <title>Career CV Manager</title>
@@ -19,7 +19,7 @@
       color-scheme: dark;
 
       --bg: #07101d;
-      --bg-elevated: #0b1627;
+      --bg-2: #0a1424;
       --panel: rgba(14, 27, 47, 0.86);
       --panel-solid: #0e1b2f;
       --panel-soft: #12233b;
@@ -49,7 +49,7 @@
       --radius-md: 14px;
       --radius-sm: 10px;
 
-      --sidebar-width: 292px;
+      --sidebar-width: 294px;
       --topbar-height: 74px;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
@@ -58,7 +58,7 @@
       color-scheme: light;
 
       --bg: #eef3f9;
-      --bg-elevated: #ffffff;
+      --bg-2: #f7f9fc;
       --panel: rgba(255, 255, 255, 0.92);
       --panel-solid: #ffffff;
       --panel-soft: #f4f7fb;
@@ -100,9 +100,9 @@
       min-height: 100dvh;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 12% -8%, rgba(109, 140, 255, 0.20), transparent 31rem),
-        radial-gradient(circle at 92% 12%, rgba(66, 215, 232, 0.12), transparent 25rem),
-        linear-gradient(160deg, var(--bg), var(--bg-elevated));
+        radial-gradient(circle at 10% -10%, rgba(109, 140, 255, 0.20), transparent 31rem),
+        radial-gradient(circle at 92% 11%, rgba(66, 215, 232, 0.12), transparent 25rem),
+        linear-gradient(160deg, var(--bg), var(--bg-2));
       color: var(--text);
       font-family:
         Inter,
@@ -116,17 +116,16 @@
       text-rendering: optimizeLegibility;
     }
 
+    body.drawer-open {
+      overflow: hidden;
+    }
+
     button,
-    input,
-    select {
+    input {
       font: inherit;
     }
 
     button {
-      color: inherit;
-    }
-
-    a {
       color: inherit;
     }
 
@@ -169,7 +168,7 @@
       gap: 9px;
       background: var(--primary);
       color: #fff;
-      font-weight: 800;
+      font-weight: 850;
       cursor: pointer;
       transition:
         transform 160ms ease,
@@ -190,7 +189,7 @@
 
     .button:disabled {
       cursor: not-allowed;
-      opacity: 0.56;
+      opacity: 0.58;
       transform: none;
     }
 
@@ -205,21 +204,13 @@
       background: var(--primary-soft);
     }
 
-    .button.ghost {
-      background: transparent;
-      color: var(--text-soft);
-      border-color: transparent;
+    .button.success {
+      background: linear-gradient(135deg, #2fbf8c, #299ec4);
+      box-shadow: 0 12px 30px rgba(47, 191, 140, 0.18);
     }
 
-    .button.ghost:hover {
-      color: var(--text);
-      background: var(--primary-soft);
-    }
-
-    .button.danger {
-      background: rgba(255, 113, 133, 0.13);
-      color: var(--danger);
-      border-color: rgba(255, 113, 133, 0.22);
+    .button.success:hover {
+      background: linear-gradient(135deg, #39ca98, #32abd0);
     }
 
     .icon-button {
@@ -248,19 +239,7 @@
       transform: translateY(-1px);
     }
 
-    .field {
-      display: grid;
-      gap: 8px;
-    }
-
-    .field label {
-      color: var(--text-soft);
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-
-    .input,
-    .select {
+    .input {
       width: 100%;
       min-height: 48px;
       border: 1px solid var(--border);
@@ -279,10 +258,20 @@
       color: var(--muted);
     }
 
-    .input:focus,
-    .select:focus {
+    .input:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 4px var(--primary-soft);
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-weight: 800;
     }
 
     .auth-shell {
@@ -372,6 +361,14 @@
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 7px rgba(55, 211, 154, 0.1);
     }
 
     .auth-copy h1 {
@@ -545,19 +542,12 @@
       padding: 20px 18px 16px;
     }
 
-    .repo-switcher {
+    .repo-badge {
       margin: 0 12px 12px;
       padding: 12px;
       border: 1px solid var(--border);
       border-radius: 15px;
       background: var(--panel-soft);
-      cursor: pointer;
-      transition: border-color 160ms ease, background 160ms ease;
-    }
-
-    .repo-switcher:hover {
-      border-color: var(--border-strong);
-      background: var(--primary-soft);
     }
 
     .repo-label {
@@ -572,7 +562,6 @@
     .repo-name {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 9px;
       font-size: 0.87rem;
       font-weight: 850;
@@ -871,14 +860,6 @@
       text-transform: uppercase;
     }
 
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--success);
-      box-shadow: 0 0 0 7px rgba(55, 211, 154, 0.1);
-    }
-
     .hero-card h1 {
       margin: 0;
       font-size: clamp(1.9rem, 4vw, 3.45rem);
@@ -887,7 +868,7 @@
     }
 
     .hero-card p {
-      max-width: 760px;
+      max-width: 790px;
       margin: 14px 0 0;
       color: var(--text-soft);
       line-height: 1.7;
@@ -1054,8 +1035,8 @@
     }
 
     .item-icon.file {
-      background: rgba(66, 215, 232, 0.11);
-      color: var(--cyan);
+      background: rgba(55, 211, 154, 0.12);
+      color: var(--success);
     }
 
     .item-icon .icon {
@@ -1109,7 +1090,7 @@
     }
 
     .item-actions .button {
-      min-height: 40px;
+      min-height: 42px;
       border-radius: 11px;
       padding: 0 12px;
       font-size: 0.75rem;
@@ -1122,7 +1103,7 @@
 
     .list-item {
       min-width: 0;
-      min-height: 66px;
+      min-height: 68px;
       padding: 10px 12px;
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -1161,7 +1142,7 @@
     }
 
     .list-actions .button {
-      min-height: 38px;
+      min-height: 40px;
       border-radius: 10px;
       padding: 0 11px;
       font-size: 0.72rem;
@@ -1177,7 +1158,7 @@
     }
 
     .state-content {
-      max-width: 530px;
+      max-width: 560px;
     }
 
     .state-icon {
@@ -1243,236 +1224,48 @@
       }
     }
 
-    dialog {
-      width: min(950px, calc(100% - 28px));
-      max-height: min(880px, calc(100dvh - 28px));
-      padding: 0;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-      background: var(--panel-solid);
-      color: var(--text);
-      box-shadow: 0 32px 100px rgba(0, 0, 0, 0.55);
-    }
-
-    dialog::backdrop {
-      background: rgba(0, 6, 16, 0.72);
-      backdrop-filter: blur(8px);
-    }
-
-    .dialog-shell {
-      max-height: min(880px, calc(100dvh - 28px));
-      display: grid;
-      grid-template-rows: auto minmax(0, 1fr) auto;
-    }
-
-    .dialog-header {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--border);
+    .download-note {
+      margin-top: 18px;
+      padding: 14px 15px;
+      border: 1px solid rgba(55, 211, 154, 0.2);
+      border-radius: 14px;
       display: flex;
       align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .dialog-title {
-      min-width: 0;
-    }
-
-    .dialog-title h2 {
-      margin: 0;
-      overflow: hidden;
-      font-size: 1.2rem;
-      letter-spacing: -0.03em;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .dialog-title p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.76rem;
-      overflow-wrap: anywhere;
-    }
-
-    .dialog-body {
-      min-height: 0;
-      overflow: auto;
-      padding: 20px;
-    }
-
-    .dialog-footer {
-      padding: 14px 20px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 9px;
-      background: var(--panel-soft);
-    }
-
-    .preview-meta {
-      margin-bottom: 16px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 9px;
-    }
-
-    .preview-meta-card {
-      min-width: 0;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      background: var(--panel-soft);
-    }
-
-    .preview-meta-label {
-      margin-bottom: 5px;
-      color: var(--muted);
-      font-size: 0.64rem;
-      font-weight: 850;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .preview-meta-value {
-      overflow: hidden;
-      font-size: 0.76rem;
-      font-weight: 850;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .preview-summary {
-      margin-bottom: 16px;
-      padding: 16px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: linear-gradient(135deg, var(--primary-soft), transparent);
-    }
-
-    .preview-summary-name {
-      font-size: 1.2rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-    }
-
-    .preview-summary-title {
-      margin-top: 4px;
-      color: var(--cyan);
-      font-size: 0.84rem;
-      font-weight: 800;
-    }
-
-    .preview-summary-update {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.72rem;
-      line-height: 1.55;
-    }
-
-    .preview-tabs {
-      margin-bottom: 10px;
-      display: flex;
-      gap: 7px;
-    }
-
-    .preview-tab {
-      min-height: 38px;
-      padding: 0 12px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--panel-soft);
-      color: var(--muted);
-      font-size: 0.74rem;
-      font-weight: 850;
-      cursor: pointer;
-    }
-
-    .preview-tab.active {
-      border-color: rgba(109, 140, 255, 0.35);
-      background: var(--primary-soft);
-      color: var(--text);
-    }
-
-    .source-wrap {
-      position: relative;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      overflow: hidden;
-      background: #040b14;
-    }
-
-    .source-toolbar {
-      padding: 9px 11px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      background: #08111f;
-      color: #8fa3bd;
-      font-size: 0.69rem;
-    }
-
-    .source-code {
-      margin: 0;
-      min-height: 330px;
-      max-height: 55vh;
-      overflow: auto;
-      padding: 17px;
-      color: #d7e4f4;
-      font-family:
-        "SFMono-Regular",
-        Consolas,
-        "Liberation Mono",
-        monospace;
-      font-size: 0.73rem;
-      line-height: 1.7;
-      tab-size: 2;
-      white-space: pre;
-    }
-
-    .sections-list {
-      display: grid;
-      gap: 8px;
-    }
-
-    .section-chip {
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--panel-soft);
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-
-    .settings-form {
-      display: grid;
-      gap: 15px;
-    }
-
-    .settings-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13px;
-    }
-
-    .settings-note {
-      padding: 13px 14px;
-      border: 1px solid rgba(255, 202, 99, 0.22);
-      border-radius: 13px;
-      background: rgba(255, 202, 99, 0.08);
+      gap: 11px;
+      background: rgba(55, 211, 154, 0.07);
       color: var(--text-soft);
-      font-size: 0.77rem;
-      line-height: 1.6;
+      font-size: 0.78rem;
+      line-height: 1.58;
     }
 
-    .mobile-drawer {
-      display: none;
+    .download-note .icon {
+      margin-top: 2px;
+      color: var(--success);
     }
 
+    .mobile-drawer,
     .drawer-backdrop {
       display: none;
+    }
+
+    .mobile-drawer-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-drawer-body {
+      padding: 10px;
+    }
+
+    .mobile-user {
+      margin: 12px;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel-soft);
     }
 
     .toast-region {
@@ -1480,7 +1273,7 @@
       right: 18px;
       bottom: calc(18px + var(--safe-bottom));
       z-index: 200;
-      width: min(380px, calc(100% - 36px));
+      width: min(390px, calc(100% - 36px));
       display: grid;
       gap: 9px;
       pointer-events: none;
@@ -1617,10 +1410,6 @@
         display: none;
       }
 
-      .top-actions .desktop-only {
-        display: none;
-      }
-
       .mobile-drawer {
         position: fixed;
         inset: 0 auto 0 0;
@@ -1653,30 +1442,6 @@
       .drawer-backdrop.open {
         opacity: 1;
         pointer-events: auto;
-      }
-
-      .mobile-drawer-header {
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        padding: 16px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: var(--panel-solid);
-      }
-
-      .mobile-drawer-body {
-        padding: 10px;
-      }
-
-      .mobile-user {
-        margin: 12px;
-        padding: 13px;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        background: var(--panel-soft);
       }
     }
 
@@ -1750,7 +1515,7 @@
       }
 
       .hero-actions .button {
-        flex: 1 1 auto;
+        width: 100%;
       }
 
       .stats-row {
@@ -1790,7 +1555,7 @@
       }
 
       .item-card {
-        min-height: 172px;
+        min-height: 174px;
         padding: 16px;
       }
 
@@ -1803,48 +1568,7 @@
       }
 
       .list-actions .button {
-        flex: 1;
-      }
-
-      dialog {
         width: 100%;
-        max-width: none;
-        max-height: 100dvh;
-        height: 100dvh;
-        border: 0;
-        border-radius: 0;
-      }
-
-      .dialog-shell {
-        max-height: 100dvh;
-        height: 100dvh;
-      }
-
-      .dialog-header,
-      .dialog-body,
-      .dialog-footer {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .dialog-footer {
-        padding-bottom: calc(14px + var(--safe-bottom));
-      }
-
-      .dialog-footer .button {
-        flex: 1;
-      }
-
-      .preview-meta {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .source-code {
-        font-size: 0.68rem;
-      }
-
-      .settings-grid {
-        grid-template-columns: 1fr;
       }
 
       .toast-region {
@@ -1878,14 +1602,15 @@
       <div class="auth-copy">
         <div class="eyebrow">
           <span class="live-dot"></span>
-          Authenticated repository workspace
+          Authenticated PDF workspace
         </div>
 
-        <h1>Your entire career positioning system, in one place.</h1>
+        <h1>Your complete CV library, ready as PDF.</h1>
 
         <p>
-          Browse every CV category recursively, inspect its LaTeX source, and
-          download a timestamped copy directly from your structured GitHub repository.
+          Browse every career category recursively and download a freshly compiled,
+          timestamped PDF from any LaTeX CV in the
+          <strong>CV-Highly-Organized</strong> repository.
         </p>
       </div>
 
@@ -1893,19 +1618,19 @@
         <div class="auth-feature">
           <span data-icon="folder-tree"></span>
           <strong>Recursive hierarchy</strong>
-          <span>Navigate every category and specialization without maintaining a manual file list.</span>
+          <span>Navigate categories and specializations without maintaining a manual file list.</span>
         </div>
 
         <div class="auth-feature">
-          <span data-icon="file-code"></span>
-          <strong>LaTeX inspection</strong>
-          <span>Preview source, extracted title, latest update comment, sections, and file metadata.</span>
+          <span data-icon="pdf"></span>
+          <strong>On-demand PDF</strong>
+          <span>Each main.tex file is compiled from the repository when its download button is pressed.</span>
         </div>
 
         <div class="auth-feature">
           <span data-icon="download"></span>
-          <strong>Safe downloads</strong>
-          <span>Every copy follows the FolderName_Timestamp.tex naming convention automatically.</span>
+          <strong>Consistent naming</strong>
+          <span>Downloads follow the FolderName_Timestamp.pdf convention automatically.</span>
         </div>
       </div>
     </div>
@@ -1931,6 +1656,7 @@
 
           <div class="field">
             <label for="passwordInput">Password</label>
+
             <div class="password-wrap">
               <input
                 id="passwordInput"
@@ -1962,8 +1688,8 @@
         </form>
 
         <div class="auth-footnote">
-          Authentication uses the connected Firebase project. Repository content is loaded
-          only after a successful sign-in.
+          Authentication uses the connected Firebase project. The repository is fixed
+          in this application and loads automatically after sign-in.
         </div>
       </section>
     </div>
@@ -1979,15 +1705,16 @@
           </div>
         </div>
 
-        <button id="repositoryButton" class="repo-switcher" type="button">
-          <div class="repo-label">GitHub repository</div>
-          <div class="repo-name">
-            <span id="repositoryName" class="repo-name-text">Not configured</span>
-            <span data-icon="settings"></span>
-          </div>
-        </button>
+        <div class="repo-badge">
+          <div class="repo-label">Fixed GitHub repository</div>
 
-        <nav id="desktopTree" class="tree-panel" aria-label="CV repository folders">
+          <div class="repo-name">
+            <span data-icon="github"></span>
+            <span class="repo-name-text">kirolossedra/CV-Highly-Organized</span>
+          </div>
+        </div>
+
+        <nav class="tree-panel" aria-label="CV repository folders">
           <div class="tree-title">Repository hierarchy</div>
           <div id="desktopTreeContent"></div>
         </nav>
@@ -2064,16 +1791,6 @@
           >
             <span data-icon="sun"></span>
           </button>
-
-          <button
-            id="settingsButton"
-            class="icon-button desktop-only"
-            type="button"
-            aria-label="Repository settings"
-            title="Repository settings"
-          >
-            <span data-icon="settings"></span>
-          </button>
         </div>
       </header>
 
@@ -2083,14 +1800,15 @@
             <div>
               <div class="hero-kicker">
                 <span id="repositoryStatusDot" class="live-dot"></span>
-                <span id="repositoryStatusText">Waiting for repository configuration</span>
+                <span id="repositoryStatusText">Loading CV-Highly-Organized</span>
               </div>
 
               <h1 id="heroTitle">Career positioning library</h1>
 
               <p id="heroDescription">
-                Configure the GitHub repository once, then browse every CV
-                category and specialization recursively from this single interface.
+                Open a category, find its LaTeX CV, and press
+                <strong>Download PDF</strong>. The system compiles the selected
+                file and names the result using its folder and the current timestamp.
               </p>
             </div>
 
@@ -2098,11 +1816,6 @@
               <button id="heroRefreshButton" class="button secondary" type="button">
                 <span data-icon="refresh"></span>
                 <span>Sync repository</span>
-              </button>
-
-              <button id="heroSettingsButton" class="button" type="button">
-                <span data-icon="settings"></span>
-                <span>Repository setup</span>
               </button>
             </div>
           </div>
@@ -2119,8 +1832,8 @@
             </div>
 
             <div class="stat">
-              <div class="stat-label">Branch</div>
-              <div id="branchValue" class="stat-value">—</div>
+              <div class="stat-label">Repository</div>
+              <div class="stat-value">CV-Highly-Organized</div>
             </div>
 
             <div class="stat">
@@ -2128,13 +1841,22 @@
               <div id="lastSyncValue" class="stat-value">—</div>
             </div>
           </div>
+
+          <div class="download-note">
+            <span data-icon="pdf"></span>
+            <span>
+              PDF generation is started directly from the selected repository
+              <code>main.tex</code>. Compilation may take several seconds before
+              the browser begins the download.
+            </span>
+          </div>
         </section>
 
         <section class="browser-panel">
           <header class="browser-header">
             <div class="browser-title">
               <h2 id="browserHeading">Repository browser</h2>
-              <p id="browserSubtitle">Folders and CV files will appear here.</p>
+              <p id="browserSubtitle">Loading folders and CV files...</p>
             </div>
 
             <div class="view-toggle" aria-label="View style">
@@ -2151,18 +1873,11 @@
           </header>
 
           <div id="browserContent" class="browser-content">
-            <div class="empty-state">
-              <div class="state-content">
-                <div class="state-icon" data-icon="folder-tree"></div>
-                <h3>Connect the CV repository</h3>
-                <p>
-                  Enter the repository owner, name, and branch to load the hierarchy.
-                </p>
-                <button class="button" type="button" data-open-settings>
-                  <span data-icon="settings"></span>
-                  <span>Configure repository</span>
-                </button>
-              </div>
+            <div class="skeleton-grid">
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
             </div>
           </div>
         </section>
@@ -2189,13 +1904,14 @@
       </button>
     </header>
 
-    <button id="mobileRepositoryButton" class="repo-switcher" type="button">
-      <div class="repo-label">GitHub repository</div>
+    <div class="repo-badge">
+      <div class="repo-label">Fixed GitHub repository</div>
+
       <div class="repo-name">
-        <span id="mobileRepositoryName" class="repo-name-text">Not configured</span>
-        <span data-icon="settings"></span>
+        <span data-icon="github"></span>
+        <span class="repo-name-text">kirolossedra/CV-Highly-Organized</span>
       </div>
-    </button>
+    </div>
 
     <nav class="mobile-drawer-body" aria-label="Mobile CV repository folders">
       <div class="tree-title">Repository hierarchy</div>
@@ -2224,128 +1940,6 @@
     </div>
   </aside>
 
-  <dialog id="previewDialog">
-    <div class="dialog-shell">
-      <header class="dialog-header">
-        <div class="dialog-title">
-          <h2 id="previewHeading">CV preview</h2>
-          <p id="previewPath">—</p>
-        </div>
-
-        <button
-          id="closePreviewButton"
-          class="icon-button"
-          type="button"
-          aria-label="Close preview"
-        >
-          <span data-icon="close"></span>
-        </button>
-      </header>
-
-      <div id="previewBody" class="dialog-body"></div>
-
-      <footer class="dialog-footer">
-        <button id="copySourceButton" class="button secondary" type="button">
-          <span data-icon="copy"></span>
-          <span>Copy source</span>
-        </button>
-
-        <button id="githubFileButton" class="button secondary" type="button">
-          <span data-icon="external"></span>
-          <span>Open on GitHub</span>
-        </button>
-
-        <button id="downloadPreviewButton" class="button" type="button">
-          <span data-icon="download"></span>
-          <span>Download .tex</span>
-        </button>
-      </footer>
-    </div>
-  </dialog>
-
-  <dialog id="settingsDialog">
-    <form id="settingsForm" class="dialog-shell">
-      <header class="dialog-header">
-        <div class="dialog-title">
-          <h2>Repository setup</h2>
-          <p>Configure the public GitHub repository that contains this index.html.</p>
-        </div>
-
-        <button
-          id="closeSettingsButton"
-          class="icon-button"
-          type="button"
-          aria-label="Close settings"
-        >
-          <span data-icon="close"></span>
-        </button>
-      </header>
-
-      <div class="dialog-body">
-        <div class="settings-form">
-          <div class="settings-grid">
-            <div class="field">
-              <label for="ownerInput">GitHub owner</label>
-              <input
-                id="ownerInput"
-                class="input"
-                type="text"
-                autocomplete="off"
-                placeholder="kirolossedra"
-                required
-              >
-            </div>
-
-            <div class="field">
-              <label for="repoInput">Repository name</label>
-              <input
-                id="repoInput"
-                class="input"
-                type="text"
-                autocomplete="off"
-                placeholder="Career-CV-Repository"
-                required
-              >
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="branchInput">Branch</label>
-            <input
-              id="branchInput"
-              class="input"
-              type="text"
-              autocomplete="off"
-              value="main"
-              placeholder="main"
-              required
-            >
-          </div>
-
-          <div class="settings-note">
-            This single-file app reads the repository through the GitHub REST API.
-            The repository must be public for browser-only access without embedding
-            a private GitHub token. Firebase Authentication protects access to this
-            interface, but it does not make an otherwise public GitHub repository private.
-          </div>
-
-          <div id="settingsMessage" class="form-message" role="alert"></div>
-        </div>
-      </div>
-
-      <footer class="dialog-footer">
-        <button id="cancelSettingsButton" class="button secondary" type="button">
-          Cancel
-        </button>
-
-        <button id="saveSettingsButton" class="button" type="submit">
-          <span data-icon="check"></span>
-          <span>Save and load</span>
-        </button>
-      </footer>
-    </form>
-  </dialog>
-
   <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="false"></div>
 
   <script type="module">
@@ -2367,25 +1961,26 @@
       appId: "1:119129277466:web:2457e5ea8abccf706e3da3"
     };
 
+    const REPOSITORY = Object.freeze({
+      owner: "kirolossedra",
+      repo: "CV-Highly-Organized",
+      branch: "main",
+      gitUrl: "https://github.com/kirolossedra/CV-Highly-Organized"
+    });
+
+    const LATEX_COMPILER_URL = "https://latexonline.cc/compile";
+
+    const STORAGE_KEYS = {
+      treeCache: "career-cv-manager-tree-cache-v2",
+      theme: "career-cv-manager-theme-v2",
+      view: "career-cv-manager-view-v2"
+    };
+
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    const STORAGE_KEYS = {
-      repository: "career-cv-manager-repository-v1",
-      treeCache: "career-cv-manager-tree-cache-v1",
-      theme: "career-cv-manager-theme-v1",
-      view: "career-cv-manager-view-v1"
-    };
-
-    const DEFAULT_REPOSITORY = {
-      owner: "kirolossedra",
-      repo: "",
-      branch: "main"
-    };
-
     const state = {
       user: null,
-      repository: loadRepositorySettings(),
       treeRoot: null,
       flatFolders: [],
       flatFiles: [],
@@ -2394,8 +1989,6 @@
       view: localStorage.getItem(STORAGE_KEYS.view) || "grid",
       loading: false,
       syncedAt: null,
-      previewFile: null,
-      previewSource: "",
       expandedPaths: new Set()
     };
 
@@ -2409,11 +2002,6 @@
       passwordToggle: document.getElementById("passwordToggle"),
       loginButton: document.getElementById("loginButton"),
       loginMessage: document.getElementById("loginMessage"),
-
-      repositoryButton: document.getElementById("repositoryButton"),
-      mobileRepositoryButton: document.getElementById("mobileRepositoryButton"),
-      repositoryName: document.getElementById("repositoryName"),
-      mobileRepositoryName: document.getElementById("mobileRepositoryName"),
 
       desktopTreeContent: document.getElementById("desktopTreeContent"),
       mobileTreeContent: document.getElementById("mobileTreeContent"),
@@ -2435,18 +2023,15 @@
       searchInput: document.getElementById("searchInput"),
       refreshButton: document.getElementById("refreshButton"),
       themeButton: document.getElementById("themeButton"),
-      settingsButton: document.getElementById("settingsButton"),
 
       repositoryStatusText: document.getElementById("repositoryStatusText"),
       repositoryStatusDot: document.getElementById("repositoryStatusDot"),
       heroTitle: document.getElementById("heroTitle"),
       heroDescription: document.getElementById("heroDescription"),
       heroRefreshButton: document.getElementById("heroRefreshButton"),
-      heroSettingsButton: document.getElementById("heroSettingsButton"),
 
       cvCount: document.getElementById("cvCount"),
       folderCount: document.getElementById("folderCount"),
-      branchValue: document.getElementById("branchValue"),
       lastSyncValue: document.getElementById("lastSyncValue"),
 
       browserHeading: document.getElementById("browserHeading"),
@@ -2455,25 +2040,6 @@
 
       gridViewButton: document.getElementById("gridViewButton"),
       listViewButton: document.getElementById("listViewButton"),
-
-      previewDialog: document.getElementById("previewDialog"),
-      previewHeading: document.getElementById("previewHeading"),
-      previewPath: document.getElementById("previewPath"),
-      previewBody: document.getElementById("previewBody"),
-      closePreviewButton: document.getElementById("closePreviewButton"),
-      copySourceButton: document.getElementById("copySourceButton"),
-      githubFileButton: document.getElementById("githubFileButton"),
-      downloadPreviewButton: document.getElementById("downloadPreviewButton"),
-
-      settingsDialog: document.getElementById("settingsDialog"),
-      settingsForm: document.getElementById("settingsForm"),
-      ownerInput: document.getElementById("ownerInput"),
-      repoInput: document.getElementById("repoInput"),
-      branchInput: document.getElementById("branchInput"),
-      settingsMessage: document.getElementById("settingsMessage"),
-      saveSettingsButton: document.getElementById("saveSettingsButton"),
-      closeSettingsButton: document.getElementById("closeSettingsButton"),
-      cancelSettingsButton: document.getElementById("cancelSettingsButton"),
 
       toastRegion: document.getElementById("toastRegion")
     };
@@ -2492,20 +2058,21 @@
         <path d="M7 15v4"></path>
         <path d="M7 19h5"></path>
       `,
-      "file-code": `
+      pdf: `
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
         <path d="M14 2v6h6"></path>
-        <path d="m10 13-2 2 2 2"></path>
-        <path d="m14 13 2 2-2 2"></path>
+        <path d="M8 15h2a2 2 0 0 0 0-4H8v6"></path>
+        <path d="M14 11v6"></path>
+        <path d="M14 11h1.5a2.5 2.5 0 0 1 0 5H14"></path>
       `,
       download: `
         <path d="M12 3v12"></path>
         <path d="m7 10 5 5 5-5"></path>
         <path d="M5 21h14"></path>
       `,
-      settings: `
-        <circle cx="12" cy="12" r="3"></circle>
-        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08A1.7 1.7 0 0 0 8.97 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.97a1.7 1.7 0 0 0-.34-1.88l-.06-.06L7.03 4.2l.06.06A1.7 1.7 0 0 0 8.97 4.6 1.7 1.7 0 0 0 10 3.04V3h4v.08a1.7 1.7 0 0 0 1.03 1.52 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"></path>
+      github: `
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.2 15 2a13.4 13.4 0 0 0-6 0C5.8.2 4.7.5 4.7.5A5 5 0 0 0 4.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.3 3.5 6.5 6.8 7A4.8 4.8 0 0 0 9 18v4"></path>
+        <path d="M9 19c-3 .9-3-1.5-4-2"></path>
       `,
       search: `
         <circle cx="11" cy="11" r="7"></circle>
@@ -2569,27 +2136,19 @@
         <path d="M9.9 4.2A9.6 9.6 0 0 1 12 4c6.5 0 10 8 10 8a16 16 0 0 1-2.3 3.4"></path>
         <path d="M6.6 6.6C3.8 8.5 2 12 2 12s3.5 8 10 8a9.4 9.4 0 0 0 4.1-.9"></path>
       `,
-      copy: `
-        <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-      `,
-      external: `
-        <path d="M14 3h7v7"></path>
-        <path d="M10 14 21 3"></path>
-        <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path>
-      `,
-      check: `
-        <path d="m5 12 4 4L19 6"></path>
-      `,
       alert: `
         <path d="M10.3 3.5 2.2 18a2 2 0 0 0 1.8 3h16a2 2 0 0 0 1.8-3L13.7 3.5a2 2 0 0 0-3.4 0Z"></path>
         <path d="M12 9v4"></path>
         <path d="M12 17h.01"></path>
+      `,
+      check: `
+        <path d="m5 12 4 4L19 6"></path>
       `
     };
 
     function iconMarkup(name) {
       const path = ICON_PATHS[name] || ICON_PATHS.alert;
+
       return `
         <svg
           class="icon"
@@ -2610,83 +2169,14 @@
 
     hydrateIcons();
 
-    function loadRepositorySettings() {
-      const detected = detectRepositoryFromEnvironment();
-
-      try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.repository));
-        return {
-          ...DEFAULT_REPOSITORY,
-          ...detected,
-          ...(saved || {})
-        };
-      } catch {
-        return {
-          ...DEFAULT_REPOSITORY,
-          ...detected
-        };
-      }
-    }
-
-    function detectRepositoryFromEnvironment() {
-      const url = new URL(window.location.href);
-      const repoParam = url.searchParams.get("repo");
-      const branchParam = url.searchParams.get("branch");
-
-      if (repoParam && repoParam.includes("/")) {
-        const [owner, repo] = repoParam.split("/");
-        return {
-          owner: owner || DEFAULT_REPOSITORY.owner,
-          repo: repo || "",
-          branch: branchParam || "main"
-        };
-      }
-
-      if (window.location.hostname.endsWith(".github.io")) {
-        const owner = window.location.hostname.split(".")[0];
-        const firstPathSegment = window.location.pathname
-          .split("/")
-          .filter(Boolean)[0];
-
-        return {
-          owner,
-          repo: firstPathSegment || `${owner}.github.io`,
-          branch: branchParam || "main"
-        };
-      }
-
-      return {};
-    }
-
-    function saveRepositorySettings() {
-      localStorage.setItem(
-        STORAGE_KEYS.repository,
-        JSON.stringify(state.repository)
-      );
-    }
-
-    function repositoryIsConfigured() {
-      return Boolean(
-        state.repository.owner &&
-        state.repository.repo &&
-        state.repository.branch
-      );
-    }
-
-    function repoKey() {
-      return [
-        state.repository.owner,
-        state.repository.repo,
-        state.repository.branch
-      ].join("/");
-    }
-
     function setTheme(theme) {
       document.documentElement.dataset.theme = theme;
       localStorage.setItem(STORAGE_KEYS.theme, theme);
+
       elements.themeButton.innerHTML = iconMarkup(
         theme === "dark" ? "sun" : "moon"
       );
+
       elements.themeButton.setAttribute(
         "aria-label",
         theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
@@ -2695,16 +2185,13 @@
 
     const initialTheme =
       localStorage.getItem(STORAGE_KEYS.theme) ||
-      (window.matchMedia("(prefers-color-scheme: light)").matches
-        ? "light"
-        : "dark");
+      (
+        window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "dark"
+      );
 
     setTheme(initialTheme);
-
-    function toggleTheme() {
-      const current = document.documentElement.dataset.theme || "dark";
-      setTheme(current === "dark" ? "light" : "dark");
-    }
 
     function firebaseErrorMessage(error) {
       const messages = {
@@ -2758,48 +2245,16 @@
     function openDrawer() {
       elements.mobileDrawer.classList.add("open");
       elements.drawerBackdrop.classList.add("open");
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("drawer-open");
     }
 
     function closeDrawer() {
       elements.mobileDrawer.classList.remove("open");
       elements.drawerBackdrop.classList.remove("open");
-      document.body.style.overflow = "";
+      document.body.classList.remove("drawer-open");
     }
 
-    function safeDialogOpen(dialog) {
-      if (!dialog.open) {
-        dialog.showModal();
-      }
-    }
-
-    function safeDialogClose(dialog) {
-      if (dialog.open) {
-        dialog.close();
-      }
-    }
-
-    function openSettings() {
-      elements.ownerInput.value = state.repository.owner || "kirolossedra";
-      elements.repoInput.value = state.repository.repo || "";
-      elements.branchInput.value = state.repository.branch || "main";
-      elements.settingsMessage.textContent = "";
-      safeDialogOpen(elements.settingsDialog);
-
-      setTimeout(() => {
-        if (elements.repoInput.value) {
-          elements.ownerInput.focus();
-        } else {
-          elements.repoInput.focus();
-        }
-      }, 80);
-    }
-
-    function closeSettings() {
-      safeDialogClose(elements.settingsDialog);
-    }
-
-    function showToast(title, message, type = "default", timeout = 4200) {
+    function showToast(title, message, type = "default", timeout = 4700) {
       const toast = document.createElement("div");
       toast.className = `toast ${type}`;
 
@@ -2808,22 +2263,22 @@
           ? "check"
           : type === "error"
             ? "alert"
-            : "folder";
+            : "pdf";
 
       toast.innerHTML = `
         <div class="toast-icon">${iconMarkup(iconName)}</div>
+
         <div>
           <strong>${escapeHtml(title)}</strong>
           <span>${escapeHtml(message)}</span>
         </div>
+
         <button type="button" aria-label="Dismiss notification">
           ${iconMarkup("close")}
         </button>
       `;
 
-      const dismiss = () => {
-        toast.remove();
-      };
+      const dismiss = () => toast.remove();
 
       toast.querySelector("button").addEventListener("click", dismiss);
       elements.toastRegion.appendChild(toast);
@@ -2872,27 +2327,27 @@
       });
     }
 
-    function buildDownloadTimestamp(date = new Date()) {
+    function buildTimestamp(date = new Date()) {
       const pad = value => String(value).padStart(2, "0");
 
       return [
         date.getFullYear(),
         pad(date.getMonth() + 1),
         pad(date.getDate())
-      ].join("") +
+      ].join("-") +
       "_" +
       [
         pad(date.getHours()),
         pad(date.getMinutes()),
         pad(date.getSeconds())
-      ].join("");
+      ].join("-");
     }
 
     function sanitizeFilenameSegment(value) {
       const cleaned = String(value || "CV")
         .trim()
         .replace(/[<>:"/\\|?*\u0000-\u001F]/g, "-")
-        .replace(/\s+/g, "-")
+        .replace(/\s+/g, " ")
         .replace(/-+/g, "-")
         .replace(/^-|-$/g, "");
 
@@ -2977,16 +2432,20 @@
 
       function finalize(folder) {
         const sortedChildren = [...folder.children.values()]
-          .sort((a, b) => a.name.localeCompare(b.name, undefined, {
-            sensitivity: "base"
-          }));
+          .sort((a, b) =>
+            a.name.localeCompare(b.name, undefined, {
+              sensitivity: "base"
+            })
+          );
 
         folder.children = new Map(
           sortedChildren.map(child => [child.name, child])
         );
 
         folder.files.sort((a, b) =>
-          a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+          a.name.localeCompare(b.name, undefined, {
+            sensitivity: "base"
+          })
         );
 
         let descendantFileCount = folder.files.length;
@@ -3068,6 +2527,7 @@
       elements.searchInput.value = "";
 
       let running = "";
+
       for (const segment of normalized.split("/").filter(Boolean)) {
         running = running ? `${running}/${segment}` : segment;
         state.expandedPaths.add(running);
@@ -3089,8 +2549,8 @@
     function repositoryApiUrl(path = "") {
       const base =
         `https://api.github.com/repos/` +
-        `${encodeURIComponent(state.repository.owner)}/` +
-        `${encodeURIComponent(state.repository.repo)}`;
+        `${encodeURIComponent(REPOSITORY.owner)}/` +
+        `${encodeURIComponent(REPOSITORY.repo)}`;
 
       return path ? `${base}/${path}` : base;
     }
@@ -3118,13 +2578,13 @@
 
         if (response.status === 403 && rateRemaining === "0") {
           throw new Error(
-            "GitHub API rate limit reached. Wait for the limit to reset, then refresh."
+            "GitHub API rate limit reached. Wait for it to reset, then refresh."
           );
         }
 
         if (response.status === 404) {
           throw new Error(
-            "Repository or branch not found. Confirm the owner, repository name, visibility, and branch."
+            "CV-Highly-Organized or its main branch could not be found. Confirm that the repository is public and that the fixed owner is correct."
           );
         }
 
@@ -3137,21 +2597,12 @@
     }
 
     async function loadRepository({ force = false } = {}) {
-      if (!repositoryIsConfigured()) {
-        state.treeRoot = null;
-        state.flatFolders = [];
-        state.flatFiles = [];
-        renderAll();
-        openSettings();
-        return;
-      }
-
       if (state.loading) {
         return;
       }
 
       state.loading = true;
-      setRepositoryStatus("Syncing repository...", "loading");
+      setRepositoryStatus("Syncing CV-Highly-Organized...", "loading");
       renderLoadingState();
 
       try {
@@ -3166,12 +2617,13 @@
             loadRepository({ force: true }).catch(error => {
               console.warn("Background repository refresh failed:", error);
             });
+
             return;
           }
         }
 
         const treeUrl = repositoryApiUrl(
-          `git/trees/${encodeURIComponent(state.repository.branch)}?recursive=1`
+          `git/trees/${encodeURIComponent(REPOSITORY.branch)}?recursive=1`
         );
 
         const tree = await fetchGitHubJson(treeUrl);
@@ -3193,20 +2645,27 @@
         });
 
         applyTreePayload(tree, syncedAt);
-        setRepositoryStatus("Repository synchronized", "live");
+        setRepositoryStatus("CV-Highly-Organized synchronized", "live");
+
         showToast(
           "Repository synchronized",
-          `${state.flatFiles.length} CV file${state.flatFiles.length === 1 ? "" : "s"} loaded.`,
+          `${state.flatFiles.length} LaTeX CV file${state.flatFiles.length === 1 ? "" : "s"} loaded.`,
           "success"
         );
       } catch (error) {
         console.error(error);
         setRepositoryStatus("Repository unavailable", "error");
         renderRepositoryError(error.message);
-        showToast("Unable to load repository", error.message, "error", 6500);
+
+        showToast(
+          "Unable to load repository",
+          error.message,
+          "error",
+          6500
+        );
       } finally {
         state.loading = false;
-        updateRepositoryUI();
+        updateStats();
       }
     }
 
@@ -3233,13 +2692,12 @@
       renderAll();
     }
 
-    function cacheStorageKey() {
-      return `${STORAGE_KEYS.treeCache}:${repoKey()}`;
-    }
-
     function writeTreeCache(payload) {
       try {
-        localStorage.setItem(cacheStorageKey(), JSON.stringify(payload));
+        localStorage.setItem(
+          `${STORAGE_KEYS.treeCache}:${REPOSITORY.owner}/${REPOSITORY.repo}/${REPOSITORY.branch}`,
+          JSON.stringify(payload)
+        );
       } catch (error) {
         console.warn("Unable to cache repository tree:", error);
       }
@@ -3247,7 +2705,11 @@
 
     function readTreeCache() {
       try {
-        const cached = JSON.parse(localStorage.getItem(cacheStorageKey()));
+        const cached = JSON.parse(
+          localStorage.getItem(
+            `${STORAGE_KEYS.treeCache}:${REPOSITORY.owner}/${REPOSITORY.repo}/${REPOSITORY.branch}`
+          )
+        );
 
         if (!cached?.tree?.tree || !cached?.syncedAt) {
           return null;
@@ -3264,9 +2726,11 @@
 
     function clearTreeCache() {
       try {
-        localStorage.removeItem(cacheStorageKey());
+        localStorage.removeItem(
+          `${STORAGE_KEYS.treeCache}:${REPOSITORY.owner}/${REPOSITORY.repo}/${REPOSITORY.branch}`
+        );
       } catch {
-        // Ignore storage errors.
+        // Ignore localStorage failures.
       }
     }
 
@@ -3283,29 +2747,18 @@
               : "var(--muted)";
 
       elements.repositoryStatusDot.style.background = color;
-      elements.repositoryStatusDot.style.boxShadow =
-        `0 0 0 7px color-mix(in srgb, ${color} 12%, transparent)`;
     }
 
-    function updateRepositoryUI() {
-      const name = repositoryIsConfigured()
-        ? `${state.repository.owner}/${state.repository.repo}`
-        : "Not configured";
-
-      elements.repositoryName.textContent = name;
-      elements.mobileRepositoryName.textContent = name;
-      elements.branchValue.textContent = state.repository.branch || "—";
+    function updateStats() {
       elements.cvCount.textContent = String(state.flatFiles.length);
       elements.folderCount.textContent = String(state.flatFolders.length);
       elements.lastSyncValue.textContent = formatSyncTime(state.syncedAt);
-      elements.heroSettingsButton.querySelector("span:last-child").textContent =
-        repositoryIsConfigured() ? "Repository settings" : "Repository setup";
     }
 
     function renderLoadingState() {
       elements.browserHeading.textContent = "Loading repository";
       elements.browserSubtitle.textContent =
-        `${state.repository.owner}/${state.repository.repo} · ${state.repository.branch}`;
+        `${REPOSITORY.owner}/${REPOSITORY.repo} · ${REPOSITORY.branch}`;
 
       elements.browserContent.innerHTML = `
         <div class="skeleton-grid">
@@ -3316,17 +2769,19 @@
 
     function renderRepositoryError(message) {
       elements.browserHeading.textContent = "Repository unavailable";
-      elements.browserSubtitle.textContent = "The GitHub hierarchy could not be loaded.";
+      elements.browserSubtitle.textContent =
+        "The fixed GitHub hierarchy could not be loaded.";
 
       elements.browserContent.innerHTML = `
         <div class="error-state">
           <div class="state-content">
             <div class="state-icon">${iconMarkup("alert")}</div>
-            <h3>Unable to read the repository</h3>
+            <h3>Unable to read CV-Highly-Organized</h3>
             <p>${escapeHtml(message)}</p>
-            <button class="button" type="button" data-open-settings>
-              ${iconMarkup("settings")}
-              <span>Check repository settings</span>
+
+            <button class="button" type="button" data-retry-load>
+              ${iconMarkup("refresh")}
+              <span>Try again</span>
             </button>
           </div>
         </div>
@@ -3336,7 +2791,7 @@
     }
 
     function renderAll() {
-      updateRepositoryUI();
+      updateStats();
       renderBreadcrumb();
       renderTrees();
       renderBrowser();
@@ -3375,7 +2830,7 @@
       if (!state.treeRoot) {
         const empty = `
           <div style="padding:12px;color:var(--muted);font-size:.78rem;line-height:1.55;">
-            Configure a repository to display its hierarchy.
+            Loading the fixed CV repository...
           </div>
         `;
 
@@ -3447,7 +2902,9 @@
                     class="tree-caret"
                     style="${hasChildren ? "" : "visibility:hidden"}"
                   >${iconMarkup("chevron")}</span>
+
                   ${iconMarkup("folder")}
+
                   <span class="tree-label">${escapeHtml(folder.name)}</span>
                   <span class="tree-count">${folder.descendantFileCount}</span>
                 </button>
@@ -3515,8 +2972,6 @@
       }
 
       if (!state.treeRoot) {
-        elements.browserHeading.textContent = "Repository browser";
-        elements.browserSubtitle.textContent = "Folders and CV files will appear here.";
         return;
       }
 
@@ -3534,7 +2989,7 @@
 
       elements.browserSubtitle.textContent = [
         `${childFolders.length} folder${childFolders.length === 1 ? "" : "s"}`,
-        `${files.length} CV file${files.length === 1 ? "" : "s"}`,
+        `${files.length} LaTeX CV${files.length === 1 ? "" : "s"}`,
         folder.path || "Repository root"
       ].join(" · ");
 
@@ -3543,7 +2998,7 @@
 
       elements.heroDescription.textContent =
         folder.path
-          ? `Browse the ${folder.name} category, inspect its LaTeX CV files, or continue into a deeper specialization.`
+          ? `Browse the ${folder.name} category and download any available CV directly as a compiled PDF.`
           : "Browse every engineering and non-engineering CV category from the repository root.";
 
       if (childFolders.length === 0 && files.length === 0) {
@@ -3551,14 +3006,19 @@
           <div class="empty-state">
             <div class="state-content">
               <div class="state-icon">${iconMarkup("folder")}</div>
-              <h3>This folder has no CV files</h3>
+              <h3>This folder has no LaTeX CV</h3>
               <p>
                 No .tex files or subfolders were found at this repository path.
               </p>
+
               ${
                 state.currentPath
                   ? `
-                    <button class="button secondary" type="button" data-path="${escapeHtml(parentPath(state.currentPath))}">
+                    <button
+                      class="button secondary"
+                      type="button"
+                      data-path="${escapeHtml(parentPath(state.currentPath))}"
+                    >
                       ${iconMarkup("chevron")}
                       <span>Go to parent folder</span>
                     </button>
@@ -3599,7 +3059,10 @@
         .filter(folder =>
           `${folder.name} ${folder.path}`.toLowerCase().includes(term)
         )
-        .map(folder => ({ ...folder, itemKind: "folder" }));
+        .map(folder => ({
+          ...folder,
+          itemKind: "folder"
+        }));
 
       const fileMatches = state.flatFiles
         .filter(file =>
@@ -3607,7 +3070,10 @@
             .toLowerCase()
             .includes(term)
         )
-        .map(file => ({ ...file, itemKind: "file" }));
+        .map(file => ({
+          ...file,
+          itemKind: "file"
+        }));
 
       const items = [...folderMatches, ...fileMatches];
 
@@ -3621,10 +3087,12 @@
             <div class="state-content">
               <div class="state-icon">${iconMarkup("search")}</div>
               <h3>No matching CVs or folders</h3>
+
               <p>
-                Try a career category, specialization, or folder name such as
-                Wireless, QA, Embedded, RAN, or Technical Sales.
+                Try a career category such as Wireless, QA, Embedded,
+                RAN, System Engineering, or Technical Sales.
               </p>
+
               <button class="button secondary" type="button" data-clear-search>
                 ${iconMarkup("close")}
                 <span>Clear search</span>
@@ -3688,8 +3156,8 @@
             return `
               <article class="item-card">
                 <div class="item-top">
-                  <div class="item-icon file">${iconMarkup("file-code")}</div>
-                  <span class="item-type">LaTeX CV</span>
+                  <div class="item-icon file">${iconMarkup("pdf")}</div>
+                  <span class="item-type">PDF ready</span>
                 </div>
 
                 <h3>${escapeHtml(item.parentName)}</h3>
@@ -3697,27 +3165,17 @@
 
                 <div class="item-meta">
                   <span>${formatBytes(item.size)}</span>
-                  <span>${escapeHtml(item.name)}</span>
+                  <span>Source: ${escapeHtml(item.name)}</span>
                 </div>
 
-                <div class="item-actions">
+                <div class="item-actions" style="grid-template-columns:1fr;">
                   <button
-                    class="button secondary"
+                    class="button success"
                     type="button"
-                    data-preview-file="${escapeHtml(item.path)}"
-                  >
-                    ${iconMarkup("file-code")}
-                    <span>Preview</span>
-                  </button>
-
-                  <button
-                    class="icon-button"
-                    type="button"
-                    data-download-file="${escapeHtml(item.path)}"
-                    aria-label="Download ${escapeHtml(item.parentName)}"
-                    title="Download timestamped .tex"
+                    data-download-pdf="${escapeHtml(item.path)}"
                   >
                     ${iconMarkup("download")}
+                    <span>Download PDF</span>
                   </button>
                 </div>
               </article>
@@ -3736,7 +3194,7 @@
             return `
               <article class="list-item">
                 <div class="item-icon ${isFolder ? "" : "file"}">
-                  ${iconMarkup(isFolder ? "folder" : "file-code")}
+                  ${iconMarkup(isFolder ? "folder" : "pdf")}
                 </div>
 
                 <div class="list-copy">
@@ -3759,21 +3217,12 @@
                       `
                       : `
                         <button
-                          class="button secondary"
+                          class="button success"
                           type="button"
-                          data-preview-file="${escapeHtml(item.path)}"
-                        >
-                          ${iconMarkup("file-code")}
-                          <span>Preview</span>
-                        </button>
-
-                        <button
-                          class="button"
-                          type="button"
-                          data-download-file="${escapeHtml(item.path)}"
+                          data-download-pdf="${escapeHtml(item.path)}"
                         >
                           ${iconMarkup("download")}
-                          <span>Download</span>
+                          <span>Download PDF</span>
                         </button>
                       `
                   }
@@ -3786,10 +3235,6 @@
     }
 
     function bindDynamicActions(container) {
-      container.querySelectorAll("[data-open-settings]").forEach(button => {
-        button.addEventListener("click", openSettings);
-      });
-
       container.querySelectorAll("[data-path]").forEach(button => {
         button.addEventListener("click", () => {
           navigateTo(button.dataset.path || "");
@@ -3802,26 +3247,14 @@
         });
       });
 
-      container.querySelectorAll("[data-preview-file]").forEach(button => {
+      container.querySelectorAll("[data-download-pdf]").forEach(button => {
         button.addEventListener("click", () => {
           const file = state.flatFiles.find(
-            item => item.path === button.dataset.previewFile
+            item => item.path === button.dataset.downloadPdf
           );
 
           if (file) {
-            openFilePreview(file);
-          }
-        });
-      });
-
-      container.querySelectorAll("[data-download-file]").forEach(button => {
-        button.addEventListener("click", async () => {
-          const file = state.flatFiles.find(
-            item => item.path === button.dataset.downloadFile
-          );
-
-          if (file) {
-            await downloadTexFile(file, button);
+            startPdfDownload(file, button);
           }
         });
       });
@@ -3831,6 +3264,13 @@
           state.searchTerm = "";
           elements.searchInput.value = "";
           renderBrowser();
+        });
+      });
+
+      container.querySelectorAll("[data-retry-load]").forEach(button => {
+        button.addEventListener("click", () => {
+          clearTreeCache();
+          loadRepository({ force: true });
         });
       });
     }
@@ -3847,325 +3287,52 @@
       renderBrowser();
     }
 
-    function rawFileUrl(filePath) {
-      return (
-        `https://raw.githubusercontent.com/` +
-        `${encodeURIComponent(state.repository.owner)}/` +
-        `${encodeURIComponent(state.repository.repo)}/` +
-        `${encodePath(state.repository.branch)}/` +
-        `${encodePath(filePath)}`
-      );
+    function buildPdfFilename(file) {
+      const folderName = sanitizeFilenameSegment(file.parentName);
+      return `${folderName}_${buildTimestamp(new Date())}.pdf`;
     }
 
-    function githubFileUrl(filePath) {
-      return (
-        `https://github.com/` +
-        `${encodeURIComponent(state.repository.owner)}/` +
-        `${encodeURIComponent(state.repository.repo)}/blob/` +
-        `${encodePath(state.repository.branch)}/` +
-        `${encodePath(filePath)}`
-      );
-    }
-
-    async function fetchTexSource(filePath) {
-      const response = await fetch(rawFileUrl(filePath), {
-        cache: "no-store"
+    function buildCompilationUrl(file, pdfFilename) {
+      const params = new URLSearchParams({
+        git: REPOSITORY.gitUrl,
+        target: file.path,
+        command: "pdflatex",
+        force: "true",
+        download: pdfFilename
       });
 
-      if (!response.ok) {
-        throw new Error(
-          `Unable to read ${filePath}. GitHub returned status ${response.status}.`
-        );
-      }
-
-      return response.text();
+      return `${LATEX_COMPILER_URL}?${params.toString()}`;
     }
 
-    function parseTexMetadata(source, file) {
-      const lines = source.replace(/\r\n/g, "\n").split("\n");
-      const firstLine = lines[0]?.trim() || "";
+    function startPdfDownload(file, triggerButton) {
+      const filename = buildPdfFilename(file);
+      const compileUrl = buildCompilationUrl(file, filename);
+      const originalContent = triggerButton.innerHTML;
 
-      const nameMatch =
-        source.match(/\{\\Huge\s+\\scshape\s+([^}]+)\}/) ||
-        source.match(/\{\\LARGE\s+\\textbf\{([^}]+)\}\}/);
+      triggerButton.disabled = true;
+      triggerButton.innerHTML =
+        `${iconMarkup("refresh")}<span>Starting compiler...</span>`;
 
-      const titleMatch =
-        source.match(/\{\\large\s+\\bfseries\s+([^}]+)\}/) ||
-        source.match(/\\begin\{center\}[\s\S]{0,600}?\\\\\s*\n\s*([^\\\n][^\n]*)\\\\/);
+      const anchor = document.createElement("a");
+      anchor.href = compileUrl;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      anchor.style.display = "none";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
 
-      const sections = [...source.matchAll(/\\section\{([^}]+)\}/g)]
-        .map(match => match[1].trim())
-        .filter(Boolean);
-
-      const cleanLatex = value =>
-        String(value || "")
-          .replace(/\\&/g, "&")
-          .replace(/\\textbf\{([^}]*)\}/g, "$1")
-          .replace(/\\textit\{([^}]*)\}/g, "$1")
-          .replace(/[{}]/g, "")
-          .replace(/\\\\/g, "")
-          .trim();
-
-      return {
-        firstLine,
-        lineCount: lines.length,
-        characterCount: source.length,
-        name: cleanLatex(nameMatch?.[1]) || "Kirolos Sedra",
-        title: cleanLatex(titleMatch?.[1]) || file.parentName,
-        sections
-      };
-    }
-
-    async function openFilePreview(file) {
-      state.previewFile = file;
-      state.previewSource = "";
-
-      elements.previewHeading.textContent = file.parentName;
-      elements.previewPath.textContent = file.path;
-      elements.previewBody.innerHTML = `
-        <div class="skeleton-grid">
-          ${Array.from({ length: 3 }, () => '<div class="skeleton-card"></div>').join("")}
-        </div>
-      `;
-
-      safeDialogOpen(elements.previewDialog);
-
-      try {
-        const source = await fetchTexSource(file.path);
-
-        state.previewSource = source;
-        const metadata = parseTexMetadata(source, file);
-
-        renderPreview(file, source, metadata);
-      } catch (error) {
-        elements.previewBody.innerHTML = `
-          <div class="error-state">
-            <div class="state-content">
-              <div class="state-icon">${iconMarkup("alert")}</div>
-              <h3>Unable to preview this CV</h3>
-              <p>${escapeHtml(error.message)}</p>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    function renderPreview(file, source, metadata) {
-      elements.previewBody.innerHTML = `
-        <div class="preview-meta">
-          <div class="preview-meta-card">
-            <div class="preview-meta-label">Folder</div>
-            <div class="preview-meta-value">${escapeHtml(file.parentName)}</div>
-          </div>
-
-          <div class="preview-meta-card">
-            <div class="preview-meta-label">Source file</div>
-            <div class="preview-meta-value">${escapeHtml(file.name)}</div>
-          </div>
-
-          <div class="preview-meta-card">
-            <div class="preview-meta-label">Lines</div>
-            <div class="preview-meta-value">${metadata.lineCount}</div>
-          </div>
-
-          <div class="preview-meta-card">
-            <div class="preview-meta-label">File size</div>
-            <div class="preview-meta-value">${formatBytes(file.size || source.length)}</div>
-          </div>
-        </div>
-
-        <section class="preview-summary">
-          <div class="preview-summary-name">${escapeHtml(metadata.name)}</div>
-          <div class="preview-summary-title">${escapeHtml(metadata.title)}</div>
-          <div class="preview-summary-update">
-            ${
-              metadata.firstLine.startsWith("%")
-                ? escapeHtml(metadata.firstLine.replace(/^%\s*/, ""))
-                : "No first-line update comment was detected."
-            }
-          </div>
-        </section>
-
-        <div class="preview-tabs">
-          <button class="preview-tab active" type="button" data-preview-tab="source">
-            LaTeX source
-          </button>
-
-          <button class="preview-tab" type="button" data-preview-tab="sections">
-            Sections (${metadata.sections.length})
-          </button>
-        </div>
-
-        <div id="previewSourcePanel">
-          <div class="source-wrap">
-            <div class="source-toolbar">
-              <span>${escapeHtml(file.path)}</span>
-              <span>${metadata.characterCount.toLocaleString()} characters</span>
-            </div>
-
-            <pre id="previewCode" class="source-code"></pre>
-          </div>
-        </div>
-
-        <div id="previewSectionsPanel" hidden>
-          <div class="sections-list">
-            ${
-              metadata.sections.length > 0
-                ? metadata.sections
-                    .map(section => `<div class="section-chip">${escapeHtml(section)}</div>`)
-                    .join("")
-                : '<div class="section-chip">No \\section commands were detected.</div>'
-            }
-          </div>
-        </div>
-      `;
-
-      document.getElementById("previewCode").textContent = source;
-
-      elements.previewBody
-        .querySelectorAll("[data-preview-tab]")
-        .forEach(tab => {
-          tab.addEventListener("click", () => {
-            const selected = tab.dataset.previewTab;
-
-            elements.previewBody
-              .querySelectorAll("[data-preview-tab]")
-              .forEach(item => {
-                item.classList.toggle(
-                  "active",
-                  item.dataset.previewTab === selected
-                );
-              });
-
-            document.getElementById("previewSourcePanel").hidden =
-              selected !== "source";
-
-            document.getElementById("previewSectionsPanel").hidden =
-              selected !== "sections";
-          });
-        });
-    }
-
-    async function downloadTexFile(file, triggerButton = null) {
-      const originalContent = triggerButton?.innerHTML;
-
-      try {
-        if (triggerButton) {
-          triggerButton.disabled = true;
-          triggerButton.innerHTML = iconMarkup("refresh");
-        }
-
-        const source =
-          state.previewFile?.path === file.path && state.previewSource
-            ? state.previewSource
-            : await fetchTexSource(file.path);
-
-        const folderName = sanitizeFilenameSegment(file.parentName);
-        const filename =
-          `${folderName}_${buildDownloadTimestamp(new Date())}.tex`;
-
-        const blob = new Blob([source], {
-          type: "application/x-tex;charset=utf-8"
-        });
-
-        const objectUrl = URL.createObjectURL(blob);
-        const anchor = document.createElement("a");
-
-        anchor.href = objectUrl;
-        anchor.download = filename;
-        document.body.appendChild(anchor);
-        anchor.click();
-        anchor.remove();
-
-        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
-
-        showToast(
-          "CV downloaded",
-          `${filename} was created from ${file.path}.`,
-          "success"
-        );
-      } catch (error) {
-        console.error(error);
-        showToast("Download failed", error.message, "error", 6000);
-      } finally {
-        if (triggerButton) {
-          triggerButton.disabled = false;
-          triggerButton.innerHTML = originalContent;
-        }
-      }
-    }
-
-    async function copyPreviewSource() {
-      if (!state.previewSource) {
-        return;
-      }
-
-      try {
-        await navigator.clipboard.writeText(state.previewSource);
-        showToast("Source copied", "The complete LaTeX source is now on the clipboard.", "success");
-      } catch {
-        const textarea = document.createElement("textarea");
-        textarea.value = state.previewSource;
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        textarea.remove();
-
-        showToast("Source copied", "The complete LaTeX source is now on the clipboard.", "success");
-      }
-    }
-
-    function openCurrentFileOnGitHub() {
-      if (!state.previewFile) {
-        return;
-      }
-
-      window.open(
-        githubFileUrl(state.previewFile.path),
-        "_blank",
-        "noopener,noreferrer"
+      showToast(
+        "PDF compilation started",
+        `${filename} will download when the LaTeX compiler finishes. If compilation fails, the opened tab will show the error log.`,
+        "success",
+        7000
       );
-    }
 
-    async function saveSettings(event) {
-      event.preventDefault();
-
-      const owner = elements.ownerInput.value.trim();
-      const repo = elements.repoInput.value.trim();
-      const branch = elements.branchInput.value.trim();
-
-      if (!owner || !repo || !branch) {
-        elements.settingsMessage.textContent =
-          "Owner, repository name, and branch are all required.";
-        return;
-      }
-
-      elements.settingsMessage.textContent = "";
-      elements.saveSettingsButton.disabled = true;
-      elements.saveSettingsButton.innerHTML =
-        `${iconMarkup("refresh")}<span>Loading...</span>`;
-
-      const previousKey = repoKey();
-
-      state.repository = { owner, repo, branch };
-      saveRepositorySettings();
-
-      if (previousKey !== repoKey()) {
-        state.currentPath = "";
-        state.expandedPaths.clear();
-      }
-
-      closeSettings();
-
-      try {
-        await loadRepository({ force: true });
-      } finally {
-        elements.saveSettingsButton.disabled = false;
-        elements.saveSettingsButton.innerHTML =
-          `${iconMarkup("check")}<span>Save and load</span>`;
-      }
+      window.setTimeout(() => {
+        triggerButton.disabled = false;
+        triggerButton.innerHTML = originalContent;
+      }, 1800);
     }
 
     elements.loginForm.addEventListener("submit", async event => {
@@ -4192,10 +3359,14 @@
 
     elements.passwordToggle.addEventListener("click", () => {
       const currentlyHidden = elements.passwordInput.type === "password";
-      elements.passwordInput.type = currentlyHidden ? "text" : "password";
+
+      elements.passwordInput.type =
+        currentlyHidden ? "text" : "password";
+
       elements.passwordToggle.innerHTML = iconMarkup(
         currentlyHidden ? "eye-off" : "eye"
       );
+
       elements.passwordToggle.setAttribute(
         "aria-label",
         currentlyHidden ? "Hide password" : "Show password"
@@ -4213,18 +3384,6 @@
     elements.closeDrawerButton.addEventListener("click", closeDrawer);
     elements.drawerBackdrop.addEventListener("click", closeDrawer);
 
-    elements.repositoryButton.addEventListener("click", openSettings);
-    elements.mobileRepositoryButton.addEventListener("click", () => {
-      closeDrawer();
-      openSettings();
-    });
-
-    elements.settingsButton.addEventListener("click", openSettings);
-    elements.heroSettingsButton.addEventListener("click", openSettings);
-    elements.closeSettingsButton.addEventListener("click", closeSettings);
-    elements.cancelSettingsButton.addEventListener("click", closeSettings);
-    elements.settingsForm.addEventListener("submit", saveSettings);
-
     elements.refreshButton.addEventListener("click", () => {
       clearTreeCache();
       loadRepository({ force: true });
@@ -4235,7 +3394,10 @@
       loadRepository({ force: true });
     });
 
-    elements.themeButton.addEventListener("click", toggleTheme);
+    elements.themeButton.addEventListener("click", () => {
+      const current = document.documentElement.dataset.theme || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    });
 
     elements.gridViewButton.addEventListener("click", () => setView("grid"));
     elements.listViewButton.addEventListener("click", () => setView("list"));
@@ -4243,27 +3405,6 @@
     elements.searchInput.addEventListener("input", () => {
       state.searchTerm = elements.searchInput.value.trim();
       renderBrowser();
-    });
-
-    elements.closePreviewButton.addEventListener("click", () => {
-      safeDialogClose(elements.previewDialog);
-    });
-
-    elements.copySourceButton.addEventListener("click", copyPreviewSource);
-    elements.githubFileButton.addEventListener("click", openCurrentFileOnGitHub);
-
-    elements.downloadPreviewButton.addEventListener("click", async () => {
-      if (state.previewFile) {
-        await downloadTexFile(
-          state.previewFile,
-          elements.downloadPreviewButton
-        );
-      }
-    });
-
-    elements.previewDialog.addEventListener("close", () => {
-      state.previewFile = null;
-      state.previewSource = "";
     });
 
     window.addEventListener("hashchange", () => {
@@ -4293,14 +3434,6 @@
       }
     });
 
-    document.addEventListener("click", event => {
-      const openSettingsTrigger = event.target.closest("[data-open-settings]");
-
-      if (openSettingsTrigger) {
-        openSettings();
-      }
-    });
-
     onAuthStateChanged(auth, async user => {
       state.user = user;
 
@@ -4311,14 +3444,7 @@
 
       updateUserUI(user);
       showAppView();
-      updateRepositoryUI();
-
-      if (!repositoryIsConfigured()) {
-        renderAll();
-        openSettings();
-        return;
-      }
-
+      updateStats();
       await loadRepository();
     });
   </script>

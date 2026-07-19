@@ -1,4 +1,4 @@
-% Latest commit: Created the CV repository using the newly adopted hierarchical folder structure.
+% Latest commit: Fixed the unclosed Experience list to restore successful PDF compilation.
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
@@ -89,15 +89,16 @@
 %----------HEADING----------
 \begin{center}
     {\Huge \scshape Kirolos Sedra} \\ \vspace{2pt}
-    {\large \bfseries System Testing \& Validation} \\ \vspace{6pt}
+    {\large \bfseries SW Testing \& Validation Engineer} \\ \vspace{6pt}
     {\small
-Systems break in interesting ways. I find the failure, isolate the root cause, and translate it into a solution non-technical stakeholders can actually act on. My experience spans API testing, SIT, UAT, and end-to-end validation across wireless, IoT, and fintech.
+Systems break in interesting ways, and that is exactly what draws me to testing and validation. My experience spans API testing, SIT, UAT, and end-to-end system validation across wireless, embedded IoT, and fintech domains. I investigate failures across layers, isolate root causes, learn new frameworks quickly, and build practical test infrastructure that improves coverage, reproducibility, and team-wide validation discipline.
     } \\ \vspace{6pt}
-    Waterloo, Ontario (relocatable) \textbar{} Employer-independent Canadian work authorization through French-language immigration pathways; no sponsorship required \\ \vspace{1pt}
+    Waterloo, Ontario (relocatable between Waterloo and Ottawa and Montréal) \textbar{} Employer-independent Canadian work authorization through French-language immigration pathways; no sponsorship required \\ \vspace{1pt}
     \small \raisebox{-0.1\height}\faPhone\ +1 519-580-9685 ~ \href{mailto:kasedra@proton.me}{\raisebox{-0.2\height}\faEnvelope\  \underline{kasedra@proton.me}} ~ 
     \href{https://linkedin.com/in/kirolossedra}{\raisebox{-0.2\height}\faLinkedin\ \underline{Kirolos Sedra}} 
     \vspace{-8pt}
 \end{center}
+
 
 \section{Experience}
   \resumeSubHeadingListStart
@@ -109,39 +110,28 @@ Systems break in interesting ways. I find the failure, isolate the root cause, a
 
 \item \textbf{Industry-Collaborative Project (Apple)}
 \begin{itemize}[leftmargin=1.5em]
-    \item Owned \textbf{end-to-end system validation} of production-representative wireless scenarios across enterprise (\textbf{Aruba}) and consumer APs (\textbf{ASUS}, \textbf{TP-Link}) in controlled \textbf{anechoic environments}, covering \textbf{roaming}, \textbf{coexistence}, \textbf{fairness}, and \textbf{resource allocation}
-\item Designed and automated a large-scale \textbf{wireless validation testbed}, reducing human intervention by \textasciitilde\textbf{70\%} through custom \textbf{test orchestration} and fully automated \textbf{network service workflows} with continuous \textbf{1 Hz} logging
+ \item Designed, automated, and executed production-representative wireless \textbf{validation test scenarios} across enterprise (Aruba) and consumer APs in controlled anechoic environments, covering roaming, coexistence, fairness, and resource allocation; reduced human intervention by \textasciitilde70\% via custom \textbf{test orchestration} (Ethernet-triggered FTP client, Aruba AirRecorder logging, automated DNS/DHCP/RADIUS workflows)
 
+\item Developed \textbf{RF measurement and validation pipelines} using Raspberry Pi and TinySA; performed \textbf{root cause analysis} of signal anomalies; validated results against digital twin and theoretical models
+ 
 
-    
-  
-
-
-
-
-    
-  \item Built \textbf{RF measurement pipelines} using a \textbf{TinySA} spectrum analyzer driven by \textbf{Raspberry Pi}, delivering calibrated \textbf{power measurements} and \textbf{channel characterization} with \textbf{frequency-time waterfall plots} in a space-critical deployment environment, replacing traditional bench equipment and saving thousands of dollars without compromising measurement integrity
-
-    \item Developed \textbf{Python}-based tooling for \textbf{automated data collection}, \textbf{post-processing}, and \textbf{performance visualization} across all wireless measurement campaigns, forming the backbone of the \textbf{validation and analysis pipeline}; extended to \textbf{real-time system dashboards} for executive-level demonstrations to \textbf{Senior Vice Presidents} and market-facing stakeholders
-
-
-  \item \textbf{BLE Thresholding and Directional Antenna Validation:} Developed and validated a BLE-based engineering solution using nRF52840 DK boards and a fixed-interval BLE beacon device, combining RSSI thresholding and directional antenna behavior to address a real deployment scenario. Solved a real engineering cost-optimization question by proposing the replacement of expensive RF shielding with directional antennas and RSSI thresholding, saving approximately tens of thousands of dollars that would otherwise be spent on shielding in a real engineering deployment. Modified and validated Nordic BLE example firmware and supporting scripts to streamline data collection, progressing through component sanity checks, RSSI measurement campaigns, mathematical threshold derivation, and final threshold validation under practical RF conditions.
+\item \textbf{BLE Thresholding and Directional Antenna Validation:} Designed and executed a \textbf{structured validation campaign} using nRF52840 DK boards, progressing through component \textbf{sanity checks}, \textbf{RSSI measurement campaigns}, and \textbf{final threshold validation} under practical RF conditions. Modified and \textbf{validated Nordic BLE example firmware} and supporting scripts to streamline data collection. Proposed replacing expensive RF shielding with directional antennas and RSSI thresholding, saving tens of thousands of dollars in deployment cost.
   
 \end{itemize}
 
 
 \item \textbf{Industry-Collaborative Project (Rogers)}
 \begin{itemize}[leftmargin=1.5em]
-    \item \textbf{End-to-End 5G SA Testbed Validation:} Built, integrated, and validated a private \textbf{5G SA} testbed using \textbf{srsRAN}, \textbf{Open5GS}, \textbf{USRP B210 SDR}, and \textbf{Quectel} UE; resolved core network registration and session establishment failures across \textbf{AMF/SMF/UPF}; conducted controlled \textbf{SNR ladder experiments} across OTA static and mobility scenarios; and measured \textbf{KPIs} including throughput, latency under load, \textbf{RSRP}, \textbf{RSRQ}, and \textbf{SINR}
+\item \textbf{End-to-End 5G SA Testbed Validation:} Built, integrated, and validated a private 5G SA testbed; performed \textbf{root cause analysis} of registration and session failures; used modem diagnostics as \textbf{test instrumentation} to verify end-to-end operation; conducted controlled \textbf{SNR ladder experiments} across static and mobility scenarios; measured \textbf{KPIs} including throughput, latency, and signal quality metrics
 
-    \item \textbf{MASc Thesis -- Wireless Performance Characterization for Mobile Robot Teleoperation:} Conducted rigorous \textbf{system-level performance testing} of \textbf{Wi-Fi} and \textbf{5G} under real-world indoor and outdoor conditions across 20 runs per scenario; performed \textbf{latency-under-load characterization} by correlating wireless quality \textbf{KPIs} including \textbf{MCS}, \textbf{SNR}, and \textbf{RSSI} against \textbf{P99 latency} and throughput; and quantified mobility-induced degradation and \textbf{LTE anchoring} effects under deployment constraints
+\item \textbf{MASc Thesis: Latency-under-Load Characterization of Wi-Fi/5G for Mobile Robot Teleoperation} --- conducted indoor and outdoor \textbf{performance test campaigns} with 20 runs per scenario as \textbf{controlled test repetitions}; measured \textbf{performance KPIs} (P99 latency, throughput); performed \textbf{root cause analysis} of mobility-induced degradation; collected and logged wireless link data via Linux tooling as \textbf{test instrumentation drivers}
+
+
+
+
+
+    
 \end{itemize}
-
-
-
-
-
-
 
  
 
@@ -151,13 +141,16 @@ Systems break in interesting ways. I find the failure, isolate the root cause, a
 
 \resumeSubheading
   {Aquasensing}{Mar 2026 -- Present}
-  {Firmware Specialist}{Part-time in a Start-up environment}
-\resumeItemListStart
-    \resumeItem{Led \textbf{migration testing and validation} of a new \textbf{SDK} rollout and directed \textbf{firmware and system integration} for \textbf{IoT gateways}, resolving long-standing technical debt and improving production reliability, feature completeness, and stability}
-    \resumeItem{Designed and implemented an automated \textbf{UAT framework} for a \textbf{BLE--LTE IoT} system using \textbf{MQTT}-based software stubs to simulate production alerts and \textbf{ESP32}-controlled power cycling for hardware event triggering, doubling test execution efficiency and increasing team-wide testing participation; diagnosed and resolved production-impacting failures in \textbf{Azure IoT Hub} Logic App workflows through \textbf{end-to-end system testing} and stub-based \textbf{fault reproduction}}
-    \resumeItem{Enforced \textbf{RF-informed testing} methodologies including \textbf{anechoic chamber} experiments for defect isolation and root-cause identification; coordinated test cases and sprints through \textbf{Azure DevOps} and \textbf{Jira} under \textbf{Agile} methodology, and introduced structured \textbf{Git-based version control} and \textbf{controlled change tracking} across firmware and backend systems}
+  {Firmware Specialist}{Part-time}
+  \resumeItemListStart
+    \resumeItem{Led migration \textbf{testing and validation} of a new SDK rollout, resolving long-standing technical debt impacting production systems}
+    \resumeItem{\textbf{Designed and implemented an automated UAT framework} for the BLE--LTE IoT system: built software stubs that impersonate MQTT packets to simulate real system alerts, and developed automated test scripts that trigger hardware events (power cycling via ESP32) to send POST requests --- doubling test execution efficiency and increasing team-wide test participation}
+    \resumeItem{\textbf{Diagnosed and resolved time-critical, production-impacting bugs in Azure IoT Hub Logic App workflows} through \textbf{end-to-end system testing} to observe live system behaviour and \textbf{MQTT stub-based testing} to isolate and reproduce failure conditions}
+    \resumeItem{\textbf{Applied corporate software-engineering best practices learned at Ejada} by introducing disciplined feature ownership, Git-based version control, structured review habits, and controlled change tracking across firmware and backend workflows}
+    \resumeItem{Organized and supervised comprehensive \textbf{test suites}, ensuring consistency, reproducibility, and alignment with system-level \textbf{validation} goals}
+    \resumeItem{Diagnosed and resolved system-level issues through \textbf{RF-informed testing}, including anechoic chamber experiments to isolate defects and guide firmware improvements}
+    \resumeItem{Directed firmware and system integration efforts for IoT gateways, improving reliability, feature completeness, and production stability}
   \resumeItemListEnd
-
 
 \resumeSubheading
   {University of Waterloo}{Feb 2025 -- Apr 2026}
@@ -169,20 +162,17 @@ Systems break in interesting ways. I find the failure, isolate the root cause, a
 \resumeSubheading
   {Ejada Systems}{Sep 2023 -- Aug 2024}
   {Software Engineer}{Full-time, Hybrid}
-  \resumeItemListStart
-    \resumeItem{Developed and integrated backend microservices and \textbf{REST APIs} for \textbf{fintech} systems serving \textbf{Al Rajhi Bank} and \textbf{Emkan Saudi Arabia}, working across a full delivery lifecycle spanning dev, \textbf{SIT}, and production environments}
-    \resumeItem{Improved \textbf{database query performance by 30\%} and \textbf{API throughput by 50\%} through \textbf{SQL} optimization, stored-procedure redesign, and elimination of redundant data retrieval logic}
-    \resumeItem{Enforced system reliability through \textbf{rollback scripts}, \textbf{operation logging} inside stored procedures, and \textbf{controlled schema change tracking} --- practices later transferred directly into \textbf{IoT} production workflows at \textbf{Aquasensing}}
+\resumeItemListStart
+    \resumeItem{Developed, optimized and tested REST APIs and backend microservices for fintech products (Al Rajhi Bank, Emkan) using Java Spring Boot, including a BNPL application built from the ground up}
+    \resumeItem{Participated in full \textbf{STLC} across \textbf{Unit Testing}, \textbf{System Integration Testing (SIT)}, and \textbf{UAT} phases for fintech backend workflows, covering REST API correctness, stored procedure logic, and end-to-end business flow validation}
+    \resumeItem{Increased \textbf{API performance} by 50\%; validated improvements through \textbf{API performance testing} across backend service flows}
+    \resumeItem{Improved database query performance by 30\%; validated through \textbf{database-side debugging} and \textbf{backend test validation} of stored procedure logic}
+    \resumeItem{Maintained rollback scripts for schema changes, reducing deployment risk and supporting controlled recovery --- enforcing \textbf{safe deployment validation} practices}
+    \resumeItem{Worked across a structured delivery lifecycle: development, feature branches, \textbf{SIT}, and production environments}
   \resumeItemListEnd
 
- \section{Publications}
-\resumeSubHeadingListStart
+  \resumeSubHeadingListEnd
 
-\resumeItem{\textbf{Scalability Analysis of Wi-Fi Broadcast Mechanisms Using Simulation and Hybrid Approaches}}
-
-\resumeItem{\textbf{Trajectory-Based Performance Characterization of Wi-Fi for Outdoor Mobile Robot Teleoperation}}
-
-\resumeSubHeadingListEnd
 
 \section{Education}
   \resumeSubHeadingListStart
@@ -205,27 +195,29 @@ Systems break in interesting ways. I find the failure, isolate the root cause, a
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Programming:} Python, C/C++, Java \\
+
+\textbf{Programming \& Frameworks:} Python, C/C++, Java, Spring Boot, Django, React, JUnit, Selenium, SQL, SQL stored procedures, noSql \\
+
      
-     \textbf{Wireless Technologies:} Wi-Fi 6/6E, 5G NR, LTE, BLE, 802.11k/v/r, RADIUS, PMK Caching \\
-     
+
      \textbf{RF \& Wireless Testing:} SDR (PlutoSDR, USRP), Spectrum Analyzer, Vector Network Analyzer (VNA), Anechoic Chambers, Shielding, Antenna Design \& Orientation, Interference \& Coexistence Testing \\
      
-     \textbf{Network Tools \& Protocols:} Wireshark, ArubaOS, DHCP, DNS, NTP, FTP, HTTPS, TCP/IP, Mininet, SSH \\
+  
+
+     \textbf{Testing:} UAT, SIT, Unit Testing, API Performance Testing, Test Automation, MQTT Stub/Simulation, Hardware-in-the-Loop Testing, Testbed Design, KPI Validation, Root Cause Analysis \\
      
-     \textbf{Simulation \& Modeling:} MATLAB, Simulink, NS-3, GNU Radio, PreScan \\
-     
-     \textbf{Embedded \& Systems:} ESP32(Wi-Fi),Arduino, STM32, Raspberry Pi, LoRa/LoRaWAN, nRF Connect \\
-     
-     \textbf{Operating Systems:} Linux, macOS, Raspberry OS
+     \textbf{Operating Systems:} Linux, macOS, Raspberry Pi OS
     }}
  \end{itemize}
 
 \section{Voluntary Involvement}
-\textbf{IEEE AP-S Chapter} Webmaster and Treasurer. Served as \textbf{Media Lead} and \textbf{Director of Service}, mentoring youth in media leadership. Led a team of 5 to drive \textbf{digital transformation} at a church community by architecting and developing a centralized \textbf{React, TypeScript, and Node.js} web application now adopted congregation-wide. Delivered academic instruction to high school students in orphanages with ongoing mentorship, and conducted weekly outreach supporting underprivileged and homeless communities.
+IEEE AP-S Chapter Webmaster and Treasurer. Media Lead and Director of Service, mentoring youth in media leadership. Delivered academic instruction to high school students in orphanages and provided ongoing mentorship. Conducted weekly outreach supporting underprivileged and homeless communities.
 
 
 
+\section{Coursework}
+
+\textbf{Ain Shams University:} Software Testing, Software Design Patterns
 
 
 \section{Soft Skills}

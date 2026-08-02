@@ -1,226 +1,107 @@
-% Latest commit: Fixed the unclosed Experience list to restore successful PDF compilation.
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,10pt]{article}
 
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
+\usepackage[margin=0.47in]{geometry}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
 \usepackage[english]{babel}
-\usepackage{tabularx}
-\usepackage{fontawesome5}
-\usepackage{multicol}
-\setlength{\multicolsep}{-3.0pt}
-\setlength{\columnsep}{-1pt}
-\input{glyphtounicode}
 
-%---------- Adjust margins ----------
-\addtolength{\oddsidemargin}{-0.6in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
-\setlength{\tabcolsep}{0in}
+\IfFileExists{glyphtounicode.tex}{
+  \input{glyphtounicode}
+  \ifdefined\pdfgentounicode
+    \pdfgentounicode=1
+  \fi
+}{}
 
-\urlstyle{same}
-\raggedbottom
+\pagestyle{empty}
 \raggedright
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
 
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
 
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
+\titlespacing{\section}{0pt}{5pt}{3pt}
 
-\newcommand{\classesList}[4]{
-    \item\small{
-        {#1 #2 #3 #4 \vspace{-2pt}}
-  }
+\setlist[itemize]{
+  leftmargin=0.16in,
+  itemsep=1pt,
+  topsep=1pt,
+  parsep=0pt,
+  partopsep=0pt
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4} \\
 }
-
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-%----------HEADING----------
 \begin{center}
-    {\Huge \scshape Kirolos Sedra} \\ \vspace{2pt}
-    {\large \bfseries SW Testing \& Validation Engineer} \\ \vspace{6pt}
-    {\small
-Systems break in interesting ways, and that is exactly what draws me to testing and validation. My experience spans API testing, SIT, UAT, and end-to-end system validation across wireless, embedded IoT, and fintech domains. I investigate failures across layers, isolate root causes, learn new frameworks quickly, and build practical test infrastructure that improves coverage, reproducibility, and team-wide validation discipline.
-    } \\ \vspace{6pt}
-    Waterloo, Ontario (relocatable between Waterloo and Ottawa and Montréal) \textbar{} Employer-independent Canadian work authorization through French-language immigration pathways; no sponsorship required \\ \vspace{1pt}
-    \small \raisebox{-0.1\height}\faPhone\ +1 519-580-9685 ~ \href{mailto:kasedra@proton.me}{\raisebox{-0.2\height}\faEnvelope\  \underline{kasedra@proton.me}} ~ 
-    \href{https://linkedin.com/in/kirolossedra}{\raisebox{-0.2\height}\faLinkedin\ \underline{Kirolos Sedra}} 
-    \vspace{-8pt}
+    {\Large \textbf{Kirolos Sedra}} \\
+    \textbf{RAN \& Cellular Systems Engineer} \\
+    Waterloo, Ontario \textbar{} Open to Ottawa and relocation \textbar{}
+    +1 519-580-9685 \textbar{}
+    \href{mailto:kasedra@proton.me}{kasedra@proton.me} \textbar{}
+    \href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra}
 \end{center}
 
+\vspace{-6pt}
+
+\section{Professional Summary}
+
+RAN and cellular systems engineer with hands-on experience integrating and validating private \textbf{5G SA} networks across the gNB, 5G core, SDR, and UE. Experienced in UE registration and PDU-session debugging, RF and mobility testing, cellular KPI analysis, and end-to-end diagnostics using \textbf{srsRAN}, \textbf{Open5GS}, \textbf{USRP}, and Quectel modems.
 
 \section{Experience}
-  \resumeSubHeadingListStart
+
 \resumeSubheading
-  {Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
-  {Research Assistant}{Full-time, On-site}
-
-\resumeItemListStart
-
-\item \textbf{Industry-Collaborative Project (Apple)}
-\begin{itemize}[leftmargin=1.5em]
- \item Designed, automated, and executed production-representative wireless \textbf{validation test scenarios} across enterprise (Aruba) and consumer APs in controlled anechoic environments, covering roaming, coexistence, fairness, and resource allocation; reduced human intervention by \textasciitilde70\% via custom \textbf{test orchestration} (Ethernet-triggered FTP client, Aruba AirRecorder logging, automated DNS/DHCP/RADIUS workflows)
-
-\item Developed \textbf{RF measurement and validation pipelines} using Raspberry Pi and TinySA; performed \textbf{root cause analysis} of signal anomalies; validated results against digital twin and theoretical models
- 
-
-\item \textbf{BLE Thresholding and Directional Antenna Validation:} Designed and executed a \textbf{structured validation campaign} using nRF52840 DK boards, progressing through component \textbf{sanity checks}, \textbf{RSSI measurement campaigns}, and \textbf{final threshold validation} under practical RF conditions. Modified and \textbf{validated Nordic BLE example firmware} and supporting scripts to streamline data collection. Proposed replacing expensive RF shielding with directional antennas and RSSI thresholding, saving tens of thousands of dollars in deployment cost.
-  
+{Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
+{Research Assistant}{Full-time, On-site}
+\begin{itemize}
+    \item Built and validated a private \textbf{5G SA testbed} using an \textbf{srsRAN gNB}, \textbf{Open5GS 5GC}, \textbf{USRP B210}, and \textbf{Quectel RM502Q-AE UE}; resolved AMF/SMF/UPF registration, PDU-session, and user-plane connectivity issues.
+    \item Executed attenuation-based SNR ladders, static OTA tests, and mobility scenarios; measured \textbf{UL/DL throughput}, latency under load, \textbf{MCS}, \textbf{CQI}, \textbf{RSRP}, \textbf{RSRQ}, and \textbf{SINR}, and investigated asymmetry through gNB, core, AT, and QMI logs.
+    \item Characterized indoor and outdoor \textbf{5G/LTE and Wi-Fi performance for mobile-robot teleoperation}, correlating radio-quality measurements with P99 latency and throughput to quantify mobility, interference, and LTE-anchoring effects.
+    \item Evaluated \textbf{NR-U/Wi-Fi coexistence} using ns-3.35, CTTC 5G-LENA, and NR-U extensions, analyzing throughput, latency, jitter, fairness, Wi-Fi starvation, and NR penalties under varied LBT behavior and traffic load.
+    \item Automated wireless validation for up to \textbf{30 DUTs}, reducing manual intervention by approximately \textbf{70\%} through RF logging, network-service automation, SSH-based configuration, and PHY/transport analysis.
 \end{itemize}
 
-
-\item \textbf{Industry-Collaborative Project (Rogers)}
-\begin{itemize}[leftmargin=1.5em]
-\item \textbf{End-to-End 5G SA Testbed Validation:} Built, integrated, and validated a private 5G SA testbed; performed \textbf{root cause analysis} of registration and session failures; used modem diagnostics as \textbf{test instrumentation} to verify end-to-end operation; conducted controlled \textbf{SNR ladder experiments} across static and mobility scenarios; measured \textbf{KPIs} including throughput, latency, and signal quality metrics
-
-\item \textbf{MASc Thesis: Latency-under-Load Characterization of Wi-Fi/5G for Mobile Robot Teleoperation} --- conducted indoor and outdoor \textbf{performance test campaigns} with 20 runs per scenario as \textbf{controlled test repetitions}; measured \textbf{performance KPIs} (P99 latency, throughput); performed \textbf{root cause analysis} of mobility-induced degradation; collected and logged wireless link data via Linux tooling as \textbf{test instrumentation drivers}
-
-
-
-
-
-    
+\resumeSubheading
+{Aquasensing}{Sep 2024 -- Present}
+{Firmware Specialist / Research Intern}{Part-time}
+\begin{itemize}
+    \item Validated and debugged production \textbf{BLE--LTE IoT gateways} through RF-informed and anechoic-chamber testing, component stubs, and cross-layer isolation of firmware, connectivity, and cloud failures.
+    \item Managed cellular IoT connectivity through \textbf{Hologram MVNO} and \textbf{Bell Jasper}; debugged \textbf{nRF/Zephyr} firmware and automated provisioning and validation workflows for \textbf{70 IoT gateways}.
 \end{itemize}
 
- 
-
-  \resumeItemListEnd
-
-
+\resumeSubheading
+{University of Waterloo}{Feb 2025 -- Apr 2026}
+{Teaching Assistant, ECE 610 Broadband Networks and ECE 358 Computer Networks}{Part-time}
 
 \resumeSubheading
-  {Aquasensing}{Mar 2026 -- Present}
-  {Firmware Specialist}{Part-time}
-  \resumeItemListStart
-    \resumeItem{Led migration \textbf{testing and validation} of a new SDK rollout, resolving long-standing technical debt impacting production systems}
-    \resumeItem{\textbf{Designed and implemented an automated UAT framework} for the BLE--LTE IoT system: built software stubs that impersonate MQTT packets to simulate real system alerts, and developed automated test scripts that trigger hardware events (power cycling via ESP32) to send POST requests --- doubling test execution efficiency and increasing team-wide test participation}
-    \resumeItem{\textbf{Diagnosed and resolved time-critical, production-impacting bugs in Azure IoT Hub Logic App workflows} through \textbf{end-to-end system testing} to observe live system behaviour and \textbf{MQTT stub-based testing} to isolate and reproduce failure conditions}
-    \resumeItem{\textbf{Applied corporate software-engineering best practices learned at Ejada} by introducing disciplined feature ownership, Git-based version control, structured review habits, and controlled change tracking across firmware and backend workflows}
-    \resumeItem{Organized and supervised comprehensive \textbf{test suites}, ensuring consistency, reproducibility, and alignment with system-level \textbf{validation} goals}
-    \resumeItem{Diagnosed and resolved system-level issues through \textbf{RF-informed testing}, including anechoic chamber experiments to isolate defects and guide firmware improvements}
-    \resumeItem{Directed firmware and system integration efforts for IoT gateways, improving reliability, feature completeness, and production stability}
-  \resumeItemListEnd
+{Ejada Systems}{Sep 2023 -- Aug 2024}
+{Software Engineer -- Java Spring Boot, REST APIs, SQL Optimization}{Full-time}
 
-\resumeSubheading
-  {University of Waterloo}{Feb 2025 -- Apr 2026}
-  {Teaching Assistant}{Part-time, Contract Term-Based}
-  \resumeItemListStart
-    \resumeItem{Teaching Assistant for ECE 106 (Lab, COMSOL), ECE 610 (2 terms, Mininet-based networking project), and ECE 358; responsible for teaching tutorials, proctoring exams, grading assignments/projects, and holding regular office hours}
-  \resumeItemListEnd
+\section{Publications}
 
-\resumeSubheading
-  {Ejada Systems}{Sep 2023 -- Aug 2024}
-  {Software Engineer}{Full-time, Hybrid}
-\resumeItemListStart
-    \resumeItem{Developed, optimized and tested REST APIs and backend microservices for fintech products (Al Rajhi Bank, Emkan) using Java Spring Boot, including a BNPL application built from the ground up}
-    \resumeItem{Participated in full \textbf{STLC} across \textbf{Unit Testing}, \textbf{System Integration Testing (SIT)}, and \textbf{UAT} phases for fintech backend workflows, covering REST API correctness, stored procedure logic, and end-to-end business flow validation}
-    \resumeItem{Increased \textbf{API performance} by 50\%; validated improvements through \textbf{API performance testing} across backend service flows}
-    \resumeItem{Improved database query performance by 30\%; validated through \textbf{database-side debugging} and \textbf{backend test validation} of stored procedure logic}
-    \resumeItem{Maintained rollback scripts for schema changes, reducing deployment risk and supporting controlled recovery --- enforcing \textbf{safe deployment validation} practices}
-    \resumeItem{Worked across a structured delivery lifecycle: development, feature branches, \textbf{SIT}, and production environments}
-  \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
+\textbf{CCECE 2026:} Trajectory-Based Performance Characterization of Wi-Fi for Outdoor Mobile Robot Teleoperation; Scalability Analysis of Wi-Fi Broadcast Mechanisms Using Simulation and Hybrid Approaches.
 
 \section{Education}
-  \resumeSubHeadingListStart
 
-    \resumeSubheading
-      {University of Waterloo}{Sep 2024 -- Aug 2026}
-      {Master of Science in ECE Specialized in Pattern Analysis and Machine Intelligence}{Grade: 92\% (A+)}
-
-\resumeSubheading
-  {Ain Shams University}{Sep 2018 -- Jul 2023}
-  {Bachelor of Science in Computer Engineering}{CGPA: 3.12/4.00}
-  \resumeItemListStart
-    \resumeItem{Graduation Project: Digital twin-based self-driving system (\textbf{Siemens EDA}) using \textbf{Simcenter PreScan}, focused on sensor fusion (RADAR, LiDAR, Camera) and ROS-based integration/testing; Grade: 4.00/4.00}
-  \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
+\textbf{University of Waterloo} -- Master of Applied Science, Electrical and Computer Engineering \hfill Sep 2024 -- Aug 2026 \\
+Grade: 92\% (A+) \\
+\textbf{Ain Shams University} -- Bachelor of Science, Computer Engineering \hfill Sep 2018 -- Jul 2023 \\
+CGPA: 3.12/4.00
 
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
 
-\textbf{Programming \& Frameworks:} Python, C/C++, Java, Spring Boot, Django, React, JUnit, Selenium, SQL, SQL stored procedures, noSql \\
-
-     
-
-     \textbf{RF \& Wireless Testing:} SDR (PlutoSDR, USRP), Spectrum Analyzer, Vector Network Analyzer (VNA), Anechoic Chambers, Shielding, Antenna Design \& Orientation, Interference \& Coexistence Testing \\
-     
-  
-
-     \textbf{Testing:} UAT, SIT, Unit Testing, API Performance Testing, Test Automation, MQTT Stub/Simulation, Hardware-in-the-Loop Testing, Testbed Design, KPI Validation, Root Cause Analysis \\
-     
-     \textbf{Operating Systems:} Linux, macOS, Raspberry Pi OS
-    }}
- \end{itemize}
-
-\section{Voluntary Involvement}
-IEEE AP-S Chapter Webmaster and Treasurer. Media Lead and Director of Service, mentoring youth in media leadership. Delivered academic instruction to high school students in orphanages and provided ongoing mentorship. Conducted weekly outreach supporting underprivileged and homeless communities.
-
-
-
-\section{Coursework}
-
-\textbf{Ain Shams University:} Software Testing, Software Design Patterns
-
-
-\section{Soft Skills}
-Fluent in English (C1) with working proficiency in French (B1). Strong interest in emerging technologies and developing intuition for improving end-user experience. Presented graduation projects to a management panel and collaborated daily with a multinational team through both verbal and non-verbal communication.
+\textbf{Cellular/RAN:} 5G NR SA/NSA, LTE, RAN architecture, PHY/MAC/RRC procedures, UE registration, PDU sessions, UL/DL analysis, mobility testing, 3GPP TS 38-series exposure \\
+\textbf{Platforms/Diagnostics:} srsRAN, Open5GS, USRP B210, Quectel modems, AT commands, QMI, gNB/5GC logs, Wireshark \\
+\textbf{RF/Performance:} RSRP, RSRQ, SINR, SNR, CQI, MCS, throughput, latency under load, attenuators, OTA, spectrum analyzer, VNA, anechoic chambers, interference/coexistence \\
+\textbf{Simulation/Systems:} ns-3, CTTC 5G-LENA, NR-U, GNU Radio, MATLAB, Simulink, Python, C/C++, Linux, TCP/IP, SSH
 
 \end{document}

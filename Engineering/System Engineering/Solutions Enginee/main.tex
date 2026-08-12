@@ -1,0 +1,122 @@
+% Solutions Engineer CV - ATS-friendly version - August 2026
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[margin=0.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+\IfFileExists{glyphtounicode.tex}{
+\input{glyphtounicode}
+\ifdefined\pdfgentounicode
+\pdfgentounicode=1
+\fi
+}{}
+
+\pagestyle{empty}
+\raggedright
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+\titlespacing{\section}{0pt}{8pt}{5pt}
+
+\setlist[itemize]{
+  leftmargin=0.18in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Kirolos Sedra}} \\
+\textbf{Solutions Engineer} \\
+Waterloo, Ontario \textbar{} Relocatable \textbar{} Authorized to work in Canada; no sponsorship required \\
++1 519-580-9685 \textbar{}
+\href{mailto:kasedra@proton.me}{kasedra@proton.me} \textbar{}
+\href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra}
+\end{center}
+\vspace{-4pt}
+
+\section{Professional Summary}
+Solutions Engineer with hands-on experience translating ambiguous technical and business requirements into deployable systems across IoT, enterprise software, wireless infrastructure, and web platforms. Combines software development and systems architecture with customer discovery, requirements gathering, API and infrastructure integration, technical demonstrations, deployment, troubleshooting, and post-deployment support. Experienced working across firmware, networking, cloud, backend, and frontend layers and communicating technical trade-offs to engineering teams, executives, partners, and non-technical stakeholders.
+
+\section{Experience}
+
+\resumeSubheading
+{Aquasensing}{Sep 2024 -- Present}
+{Firmware Specialist}{Part-time, Startup Environment}
+\begin{itemize}
+  \item Led customer- and partner-facing technical engagements with \textbf{12Energy Ltd.}, \textbf{Evergreen}, and \textbf{Bell IoT}, covering product demonstrations, deployment specifications, connectivity requirements, and pricing discussions; supported a \textbf{50-gateway commercial deployment} and continued post-deployment technical support.
+  \item Owned the BLE--LTE IoT product roadmap as Product Owner, coordinating SDK migration, feature delivery, and production hardening across firmware, cloud, backend, and web workflows using \textbf{Azure DevOps}, \textbf{Jira}, \textbf{Git}, and structured database safeguards.
+  \item Developed and supported cloud-integrated IoT functionality using \textbf{React}, \textbf{Django}, \textbf{Node.js}, and real-time analytics workflows, translating operational requirements into deployable software and integration changes.
+  \item Diagnosed field and production issues across RF, firmware, connectivity, and cloud layers; built an \textbf{ESP32-based automated test kit} and documented SOPs to improve deployment readiness, reproducibility, and supportability of IoT gateways.
+\end{itemize}
+
+\resumeSubheading
+{Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
+{Research Assistant}{Full-time, On-site}
+\begin{itemize}
+  \item Owned end-to-end integration and automation of production-representative wireless environments for an \textbf{Apple industry collaboration}, spanning enterprise Aruba and consumer access points, DNS/DHCP/RADIUS services, SSH-managed devices, logging, RF instrumentation, and custom orchestration; reduced manual intervention by approximately \textbf{70\%}.
+  \item Developed \textbf{Python} tooling for automated data collection, post-processing, visualization, and real-time dashboards used in technical demonstrations to \textbf{Senior Vice Presidents} and market-facing stakeholders, making complex system behavior accessible to mixed technical and non-technical audiences.
+  \item Designed and validated a BLE deployment solution using \textbf{nRF52840} devices, RSSI thresholding, and directional antennas to replace costly RF shielding in a constrained deployment scenario, identifying potential savings of \textbf{tens of thousands of dollars} while meeting engineering requirements.
+  \item Built and integrated an end-to-end private \textbf{5G SA} testbed for a \textbf{Rogers} collaboration using srsRAN, Open5GS, USRP B210, and Quectel UE components; diagnosed registration/session issues and characterized deployment-critical latency, throughput, and signal-quality KPIs across mobility scenarios.
+  \item Demonstrated the multi-RAT Wi-Fi/5G system in two live rounds to approximately \textbf{15 industry-partner attendees}, using real-time robot and network metrics to explain system behavior, trade-offs, and performance to technical and non-technical stakeholders.
+\end{itemize}
+
+\newpage
+\resumeSubheading
+{ChurchOne / LinC}{Ongoing}
+{Product Owner \& Solution Architect}{Volunteer, Digital Transformation Initiative}
+\begin{itemize}
+  \item Led a five-person digital-transformation initiative and architected a centralized \textbf{React}, \textbf{TypeScript}, and \textbf{Firebase} platform used by \textbf{30+ congregation members}, translating operational pain points into technical requirements, prioritized workflows, and production-ready features.
+  \item Designed the solution architecture across authentication, permissions, data workflows, administrative operations, forms, communications, reporting, and deployment; reviewed implementations, diagnosed failures, prevented regressions, and coordinated production releases.
+  \item Designed and deployed a secure external-service integration using \textbf{Hono}, \textbf{Cloudflare Workers}, \textbf{Zod}, Firebase ID-token verification, and \textbf{Brevo}, covering authentication, validation, secret management, bilingual communication workflows, user training, and production support.
+\end{itemize}
+
+\resumeSubheading
+{Ejada Systems}{Sep 2023 -- Aug 2024}
+{Software Engineer}{Full-time, Hybrid}
+\begin{itemize}
+  \item Architected and built a new \textbf{BNPL application} for \textbf{Emkan Saudi Arabia} from the ground up in a two-person core team, owning backend architecture, business logic, system integration, and frontend support using \textbf{Java Spring Boot}, SQL, NewGen, and JavaScript.
+  \item Developed and maintained REST APIs and backend microservices for fintech loan products supporting \textbf{Al Rajhi Bank} and \textbf{Emkan Governmental Services}, collaborating daily across engineering teams in Egypt and Saudi Arabia.
+  \item Improved database-query performance by \textbf{30\%} and API performance by \textbf{50\%} through SQL optimization, stored-procedure redesign, and removal of redundant service calls while maintaining rollback, logging, and staged-release safeguards.
+\end{itemize}
+
+\section{Technical Skills}
+\textbf{Solution Architecture \& Integration:} Requirements gathering, technical discovery, solution design, systems integration, API integration, authentication/authorization, deployment, troubleshooting, root-cause analysis, technical demonstrations, post-deployment support \\
+\textbf{Programming \& Web:} Python, Java, C/C++, JavaScript, TypeScript, SQL, Bash, Spring Boot, Django, Node.js, Hono, React, Firebase, REST APIs, Swagger/OpenAPI \\
+\textbf{Cloud \& DevOps:} Azure, Azure IoT, Azure CLI, Azure DevOps, Cloudflare Workers, Netlify, Docker, GitHub Actions, Git, Jira, CI/CD \\
+\textbf{Systems \& Networking:} Linux, TCP/IP, HTTPS, DNS, DHCP, SSH, MQTT, Wireshark, ArubaOS, databases, microservices \\
+\textbf{IoT \& Wireless:} BLE, LTE, 5G NR/SA, Wi-Fi, ESP32, Raspberry Pi, nRF52840, SDR, spectrum analysis, RF testbeds \\
+\textbf{AI/ML:} Pattern Analysis and Machine Intelligence specialization, LLM API integration concepts, AI-assisted software workflows
+
+\section{Education}
+\textbf{University of Waterloo} \hfill \textbf{Sep 2024 -- Aug 2026} \\
+\textit{Master of Applied Science in Electrical and Computer Engineering} \hfill \textit{92\% (A+)} \\
+\textit{Specialization: Pattern Analysis and Machine Intelligence} \\
+\vspace{4pt}
+\textbf{Ain Shams University} \hfill \textbf{Sep 2018 -- Jul 2023} \\
+\textit{Bachelor of Science in Computer Engineering} \hfill \textit{CGPA: 3.12/4.00}
+
+\section{Leadership \& Languages}
+\textbf{Leadership:} IEEE AP-S Chapter Webmaster and Treasurer; Media Lead and Director of Service; technical mentorship, community outreach, and engineering-team hiring support. \\
+\textbf{Languages:} English (C1), French (B1)
+
+\end{document}

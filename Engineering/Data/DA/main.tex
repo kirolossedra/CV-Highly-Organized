@@ -1,0 +1,151 @@
+% August 2026: Data Analyst version v6; revised to strengthen BI, business decision support,
+% empirical analytics, and generic Data Analyst readability while preserving factual job titles.
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[margin=0.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\IfFileExists{glyphtounicode.tex}{
+  \input{glyphtounicode}
+  \ifdefined\pdfgentounicode
+    \pdfgentounicode=1
+  \fi
+}{}
+
+\pagestyle{empty}
+\raggedright
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{8pt}{5pt}
+
+\setlist[itemize]{
+  leftmargin=0.18in,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \textbf{#1} \hfill \textit{#2} \\
+}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Kirolos Sedra}} \\
+    \textbf{Data Analyst} \\
+    Waterloo, Ontario \textbar{} Relocatable \textbar{} Authorized to work in Canada; no sponsorship required \\
+    +1 519-580-9685 \textbar{}
+    \href{mailto:kasedra@proton.me}{kasedra@proton.me} \textbar{}
+    \href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra}
+\end{center}
+
+\vspace{-4pt}
+
+\section{Professional Summary}
+
+Data Analyst with hands-on experience using \textbf{Python}, \textbf{SQL}, \textbf{Power BI}, and \textbf{Excel} to clean, analyze, visualize, and interpret experimental, IoT, and fintech data. Experienced in EDA, statistical analysis, KPI reporting, dashboarding, and translating empirical evidence into engineering and stakeholder decisions through industry-collaborative research, with a \textbf{Pattern Analysis and Machine Intelligence} specialization.
+
+\section{Experience}
+
+\resumeSubheading
+{Wireless Sensors and Devices Lab, University of Waterloo}{Sep 2024 -- Present}
+{Wireless Data Analyst (Research Assistant)}{Full-time, On-site}
+\begin{itemize}
+    \item Designed and analyzed \textbf{80 controlled experimental runs} across four scenarios (20 one-minute runs per scenario), building \textbf{Python-based data pipelines} to collect, clean, merge, align, filter, and aggregate high-frequency wireless and performance datasets.
+    \item Performed \textbf{EDA and comparative analysis} across mobility, load, interference, line-of-sight, and attenuation conditions using counts/percentages, heatmaps, time-series charts, box plots, cross-metric overlays, and frequency--time visualizations; investigated anomalous behavior using synchronized logs and experimental context.
+    \item Applied distribution-aware statistics using \textbf{P50/P99}, mean/standard deviation, one-sample left-tailed \textbf{t-tests}, p-values, threshold-based degradation criteria, and \textbf{Holm correction} across repeated trials to distinguish systematic performance changes from run-to-run variation.
+    \item Supported \textbf{Apple engineering decisions through empirical analysis}, translating controlled experimental results into weekly stakeholder presentations, visual evidence, and technical recommendations; communicated findings to industry partners, Senior Vice Presidents, and mixed technical/non-technical audiences.
+    \item Combined timestamped network, performance, and GPS datasets to build street-level heatmaps and explain location-, mobility-, and network-driven changes, turning multiple raw data sources into decision-ready findings.
+\end{itemize}
+
+\resumeSubheading
+{Aquasensing}{Sep 2024 -- Present}
+{Firmware Specialist / Research Intern}{Part-time, Startup Environment}
+\begin{itemize}
+    \item Integrated \textbf{Power BI dashboards into a React application} for real-time IoT monitoring and operational visibility, connecting device-facing workflows with stakeholder-ready analytics for customer demonstrations and ongoing system review.
+    \item Analyzed device telemetry, logs, RF measurements, and end-to-end test results to diagnose production issues; built \textbf{Python--SQL} tooling and used stored-procedure logging and rollback safeguards to improve data integrity and reproducibility.
+    \item Translated technical measurements and operational findings into stakeholder-facing conclusions for \textbf{12Energy}, \textbf{Evergreen}, and \textbf{Bell IoT}, contributing to deployment planning and a \textbf{50-gateway commercial rollout}.
+\end{itemize}
+
+\resumeSubheading
+{ChurchOne / LinC}{Ongoing}
+{Product Owner \& Solution Architect}{Volunteer, Digital Transformation Initiative}
+\begin{itemize}
+    \item Led a five-person initiative and architected a \textbf{React}, \textbf{TypeScript}, and \textbf{Firebase} platform used by \textbf{30+ congregation members}, defining structured data workflows, validation rules, and reporting views for attendance, people records, assignments, forms/surveys, and notes so records could be consistently captured, searched, reviewed, and used for follow-up and decision-making.
+\end{itemize}
+
+\newpage
+\resumeSubheading
+{Ejada Systems}{Sep 2023 -- Aug 2024}
+{Software Engineer}{Full-time, Hybrid}
+\begin{itemize}
+    \item Developed fintech REST APIs and backend services using \textbf{Java Spring Boot}, \textbf{SQL}, and stored procedures for \textbf{Al Rajhi Bank} and \textbf{Emkan Governmental Services}.
+    \item Improved database-query performance by \textbf{30\%} through SQL optimization, indexing, and stored-procedure redesign; improved API performance by \textbf{50\%} by eliminating redundant database/service calls and optimizing retrieval logic.
+    \item Performed database-side debugging, data validation, and stored-procedure analysis while maintaining operation logging and rollback scripts for safe, traceable schema and data changes.
+\end{itemize}
+
+\section{Selected Data \& Machine Learning Coursework}
+
+\resumeProjectHeading
+{ECE 657A -- Data Analysis and Machine Learning}{Python, pandas, scikit-learn, TensorFlow/Keras}
+\begin{itemize}
+    \item Completed EDA/modeling assignments on Wine Quality, Abalone, and Forest Fires datasets covering missing-data assessment, descriptive statistics, distributions, class balance, standardization, train/test splits, \textbf{5-fold cross-validation}, and classification/regression evaluation.
+    \item Implemented KNN, Decision Trees, Random Forests, Gradient Boosting, and hyperparameter searches; analyzed CNN representations on Fashion-MNIST using \textbf{PCA}, explained variance, \textbf{t-SNE}, and \textbf{K-Means} clustering.
+\end{itemize}
+
+\resumeProjectHeading
+{Additional Applied Analytics \& ML Coursework}{Computational Intelligence, Image Processing, NLP}
+\begin{itemize}
+    \item Applied normalization, standardization, missing-value imputation, one-hot encoding, confusion matrices, ROC/AUC, and train/validation/test methodology; implemented neural-network training concepts including backpropagation, Adam, validation tracking, and early stopping.
+    \item Built text-analysis workflows using tokenization, unigrams/bigrams, CountVectorizer, and Multinomial Naive Bayes; also worked with Word2Vec, PCA/ICA concepts, image/video analysis, and model/runtime trade-off evaluation.
+\end{itemize}
+
+\section{Education}
+
+\textbf{University of Waterloo} \hfill \textbf{Sep 2024 -- Aug 2026} \\
+\textit{Master of Applied Science in Electrical and Computer Engineering} \hfill \textit{92\% (A+)} \\
+\textit{Specialization: Pattern Analysis and Machine Intelligence} \\
+
+\vspace{4pt}
+
+\resumeSubheading
+{Ain Shams University}{Sep 2018 -- Jul 2023}
+{Bachelor of Science in Computer Engineering}{CGPA: 3.12/4.00}
+
+\section{Technical Skills}
+
+\textbf{Data \& Programming:} Python, SQL, pandas, NumPy, scikit-learn, MATLAB, Java, Bash \\
+\textbf{BI \& Visualization:} Power BI, Excel (charts, dashboards, statistical analysis, VBA/macros), Tableau (coursework), heatmaps, time-series charts, box plots, publication-quality figures/tables \\
+\textbf{Analysis \& Statistics:} EDA, data cleaning, descriptive statistics, P50/P99, mean/standard deviation, hypothesis testing, t-tests, p-values, Holm correction, cross-validation \\
+\textbf{Machine Learning:} Regression, classification, KNN, Decision Trees, Random Forests, Gradient Boosting, Naive Bayes, K-Means, PCA, t-SNE, CNNs, TensorFlow/Keras \\
+\textbf{Data Systems:} Relational databases, stored procedures, indexing, REST APIs, Azure IoT, logging and rollback/data-integrity workflows \\
+\textbf{Spoken Languages:} English (C1), French (B1)
+
+\section{Leadership \& Communication}
+
+\begin{itemize}
+    \item University of Waterloo Teaching Assistant for ECE 106, ECE 610, and ECE 358; IEEE AP-S Chapter Webmaster and Treasurer; experienced presenting analytical results, evidence-based recommendations, and technical trade-offs to industry, executive, and non-technical audiences.
+\end{itemize}
+
+\end{document}

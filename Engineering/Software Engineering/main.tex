@@ -1,13 +1,14 @@
-% Updated August 2026: focused software-engineering version.
+% Software Engineering CV - updated August 22, 2026
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage[margin=0.65in]{geometry}
+\usepackage[margin=0.62in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage[hidelinks]{hyperref}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{microtype}
+\usepackage{fontawesome5}
 
 \IfFileExists{glyphtounicode.tex}{
   \input{glyphtounicode}
@@ -29,12 +30,12 @@
   {}
   [\titlerule]
 
-\titlespacing{\section}{0pt}{8pt}{5pt}
+\titlespacing{\section}{0pt}{7pt}{4pt}
 
 \setlist[itemize]{
   leftmargin=0.18in,
-  itemsep=2pt,
-  topsep=2pt,
+  itemsep=1.7pt,
+  topsep=1.8pt,
   parsep=0pt,
   partopsep=0pt
 }
@@ -48,22 +49,25 @@
   \textbf{#1} \hfill \textit{#2} \\
 }
 
+\newcommand{\linksep}{\hspace{0.35em}\textbar\hspace{0.35em}}
+
 \begin{document}
 
 \begin{center}
     {\LARGE \textbf{Kirolos Sedra}} \\
     \textbf{Software Engineer} \\
     Waterloo, Ontario \textbar{} Relocatable \textbar{} Authorized to work in Canada; no sponsorship required \\
-    +1 519-580-9685 \textbar{}
-    \href{mailto:kasedra@proton.me}{kasedra@proton.me} \textbar{}
-    \href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra}
+    \faPhone\ +1 519-580-9685 \linksep
+    \faEnvelope\ \href{mailto:kasedra@proton.me}{kasedra@proton.me} \linksep
+    \faLinkedin\ \href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra} \linksep
+    \faGithub\ \href{https://github.com/kirolossedra}{github.com/kirolossedra}
 \end{center}
 
-\vspace{-4pt}
+\vspace{-5pt}
 
 \section{Professional Summary}
 
-Backend-focused Software Engineer with experience building Java Spring Boot fintech services, cloud-integrated IoT platforms, and production web systems. Strong in REST APIs, SQL, system integration, test automation, CI/CD, debugging, and translating stakeholder requirements into reliable software releases.
+Software Engineer with \textbf{3+ years of software-development experience} across \textbf{Java/Spring Boot fintech microservices}, full-stack web systems, and cloud-integrated IoT. Strong in REST APIs, SQL optimization, backend architecture, React/TypeScript, CI/CD, automated testing, debugging, and end-to-end system ownership from requirements through deployment and production support.
 
 \section{Experience}
 
@@ -71,33 +75,41 @@ Backend-focused Software Engineer with experience building Java Spring Boot fint
 {Aquasensing}{Sep 2024 -- Present}
 {Software Engineer}{Part-time, Startup Environment}
 \begin{itemize}
-    \item Developed features for a cloud-integrated BLE--LTE IoT platform using \textbf{React}, \textbf{Django}, \textbf{Node.js}, and real-time data analytics workflows.
-    \item Built an automated test-and-provisioning suite using \textbf{Azure CLI} to configure and validate a \textbf{70-unit IoT gateway fleet}.
-    \item Led technical discussions with \textbf{Bell IoT} on deployment specifications and pricing, and delivered a stakeholder demonstration for \textbf{12Energy Ltd.} that contributed to a \textbf{50-gateway commercial deployment} with continued post-sale support.
-    \item Served as Product Owner for the IoT system, introducing disciplined \textbf{Git}, Azure DevOps, and Jira workflows; coordinating SDK migrations; and applying database safeguards through stored procedures, logging, and rollback procedures.
+    \item Developed full-stack features for a cloud-integrated \textbf{BLE--LTE IoT platform} using \textbf{React/TypeScript}, \textbf{Django/Python}, \textbf{Node.js}, Azure IoT Hub, Logic Apps, and Azure SQL-backed workflows; also supported firmware flashing and physical connectivity validation.
+    \item Built an \textbf{Azure CLI} test-and-provisioning suite for a \textbf{70-unit IoT gateway fleet} and created MQTT alarm stubs to reproduce gateway events, isolate cloud-side defects, and reduce dependence on physical hardware during debugging.
+    \item Designed an \textbf{ESP32-based automated end-to-end validation kit} that triggered sensor events and verified the complete alarm path through BLE/LTE connectivity, cloud processing, and email/SMS notifications; authored the SOP and trained \textbf{5 engineers} on its use.
+    \item Led B2B technical discussions with a Canadian telecom/IoT provider and delivered a stakeholder demonstration that contributed to a \textbf{50-gateway commercial deployment} for an energy-sector customer, followed by continued technical support.
 \end{itemize}
 
 \resumeSubheading
-{ChurchOne / LinC}{Ongoing}
-{Product Owner \& Solution Architect}{Volunteer, AI-Assisted Development}
+{LINC One \;{\small \faGlobe\ \href{https://lincministry.com/}{Live} \; \faGithub\ \href{https://github.com/kirolossedra/LInC-Church-Management}{GitHub}}}{May 2026 -- Present}
+{Product Owner \& Software Engineer}{Volunteer}
 \begin{itemize}
-    \item Led a five-person digital-transformation initiative and architected a centralized \textbf{React}, \textbf{TypeScript}, and \textbf{Firebase} platform used by \textbf{30+ congregation members} for meetings, attendance, people, notes, assignments, posts, forms, surveys, permissions, PDFs, and administrative workflows.
-    \item Directed AI-assisted engineering through \textbf{ChatGPT} and \textbf{Codex} by defining requirements, prioritizing features, reviewing implementations, debugging failures, preventing regressions, and validating releases through consistently green frontend and backend \textbf{GitHub Actions} pipelines.
-    \item Designed and deployed a secure backend email workflow using \textbf{Hono}, \textbf{Cloudflare Workers}, \textbf{Zod}, Firebase ID-token verification, and \textbf{Brevo}, with structured validation, error handling, secret management, bilingual English/Arabic invitations, user training, and production support.
+    \item Led product ownership and engineering of a production \textbf{React/TypeScript/Firebase} platform serving the full \textbf{30+ member congregation}, coordinating three GitHub contributors and stakeholder feedback across scheduling, attendance, assessments, people development, administration, and ministry workflows.
+    \item Evolved sensitive operations behind a \textbf{Hono/Cloudflare Worker REST backend} with Firebase ID-token authentication, server-side authorization, Zod validation, Brevo integrations, and \textbf{audited administrator self-service} for roles, forms, media/carousel configuration, and attendance, reducing recurring developer intervention.
+    \item Directed AI-assisted engineering with \textbf{ChatGPT/Codex}, reviewing and debugging generated changes rather than treating them as trusted output; integrated \textbf{Bezalel AI} into selected product workflows and established backend CI/CD with tests, type checking, automated deployment, and production smoke checks.
+    \item Owned a \textbf{three-phase product roadmap} spanning platform maturity, unified web consolidation, and future mobile/infrastructure expansion while prioritizing stakeholder needs, technical debt, security improvements, feature pruning, and release scope.
 \end{itemize}
 
 \resumeSubheading
 {Ejada Systems}{Sep 2023 -- Aug 2024}
 {Software Engineer}{Full-time, Hybrid}
 \begin{itemize}
-    \item Developed and maintained \textbf{REST APIs} and backend \textbf{microservices} for fintech loan products using \textbf{Java Spring Boot}, \textbf{SQL}, and stored procedures, supporting systems for \textbf{Al Rajhi Bank} and \textbf{Emkan Governmental Services}.
-    \item Architected and developed a new \textbf{BNPL application} for Emkan Saudi Arabia in a two-person core team, owning backend architecture, business logic, system integration, and frontend support using NewGen and JavaScript.
-    \item Improved SQL-query performance by \textbf{30\%} through indexing and query optimization, and improved API performance by \textbf{50\%} by removing redundant stored-procedure calls.
-    \item Supported safe delivery through rollback scripts, database logging, system-integration testing, feature-branch workflows, and production release activities while collaborating with a multicultural Saudi-based team.
+    \item Developed and maintained \textbf{REST APIs} and backend \textbf{microservices} for fintech loan products using \textbf{Java Spring Boot}, \textbf{SQL}, and stored procedures, supporting systems for Al Rajhi Bank and Emkan Finance.
+    \item Architected and developed a new \textbf{BNPL application} for Emkan Finance in a two-person core team, owning backend architecture, business logic, and system integration with the bank's existing frontend template.
+    \item Improved measured SQL-query performance by \textbf{30\%} through indexing and query optimization, and improved API performance by \textbf{50\%} by eliminating redundant stored-procedure calls.
 \end{itemize}
 
 \newpage
-\section{Selected Technical Projects}
+\section{Selected Software Projects}
+
+\resumeProjectHeading
+{EurekaVault \;{\small \faGlobe\ \href{https://eurekavault.netlify.app/}{Live} \; \faGithub\ \href{https://github.com/kirolossedra/Prompt-management}{GitHub}}}
+{React 19, TypeScript, Firebase, Spring Boot}
+\begin{itemize}
+    \item Owned the architecture and development of a live full-stack \textbf{prompt-management and AI workflow platform} integrating hierarchical prompt/version management, diffs and restore, attachments, directed relationships, reusable mindsets/preferences, semantic retrieval, prompt repurposing/mixing, and visual typed-DAG pipelines.
+    \item Built the product with \textbf{React 19/TypeScript/Vite}, Firebase, Gemini-backed services, automated tests, and GitHub Actions; established a \textbf{Spring Boot 4.1 / Java 21} backend foundation on Render while leading an incremental migration from the current Firebase/Netlify architecture toward a three-tier REST architecture.
+\end{itemize}
 
 \resumeProjectHeading
 {Laboratory Inventory and Experiment Management System}
@@ -121,7 +133,7 @@ Backend-focused Software Engineer with experience building Java Spring Boot fint
 \textit{Master of Applied Science in Electrical and Computer Engineering} \hfill \textit{92\% (A+)} \\
 \textit{Specialization: Pattern Analysis and Machine Intelligence} \\
 
-\vspace{4pt}
+\vspace{3pt}
 
 \resumeSubheading
 {Ain Shams University}{Sep 2018 -- Jul 2023}
@@ -129,11 +141,12 @@ Backend-focused Software Engineer with experience building Java Spring Boot fint
 
 \section{Technical Skills}
 
-\textbf{Programming:} Java, Python, C/C++, JavaScript, TypeScript, SQL, Bash, HTML, CSS \\
-\textbf{Backend \& Web:} Spring Boot, Django, Node.js, Hono, React, Firebase, REST APIs, Swagger/OpenAPI, microservices \\
-\textbf{Testing \& Quality:} GitHub Actions, Vitest, frontend and backend automated testing, API testing, SIT, regression testing, mocked external-service testing \\
-\textbf{Cloud \& DevOps:} Azure, Azure CLI, Azure DevOps, Cloudflare Workers, Netlify, Docker, Git, Jira \\
-\textbf{Systems \& Networking:} Linux, macOS, TCP/IP, HTTPS, DNS, DHCP, NTP, FTP, SSH \\
+\textbf{Programming:} Java, SQL, TypeScript, JavaScript, Python, C/C++, Bash, HTML, CSS \\
+\textbf{Backend \& Web:} Spring Boot, REST APIs, microservices, Django, Hono, React, Firebase, Swagger/OpenAPI, Maven \\
+\textbf{Databases \& Data:} Azure SQL, Firebase Realtime Database, stored procedures, indexing, query optimization \\
+\textbf{Testing \& Quality:} Spring Boot testing, Vitest, API testing, SIT, regression testing, production smoke testing, mocked external-service testing \\
+\textbf{Cloud \& DevOps:} GitHub Actions, Docker, Azure, Azure CLI, Azure IoT, Azure DevOps, Cloudflare Workers, Netlify, Render, Git, Jira \\
+\textbf{Systems \& Networking:} Linux, TCP/IP, HTTPS, DNS, SSH, MQTT, BLE, LTE, Wi-Fi \\
 \textbf{Spoken Languages:} English (C1), French (B1)
 
 \section{Leadership \& Community}

@@ -1,0 +1,99 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[margin=0.58in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{tabularx}
+\IfFileExists{glyphtounicode.tex}{\input{glyphtounicode}\pdfgentounicode=1}{}
+\pagestyle{empty}
+\raggedright
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlist[itemize]{leftmargin=0.18in,itemsep=1.5pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+\newcommand{\role}[4]{\textbf{#1} \hfill \textbf{#2} \\
+\textit{#3} \hfill \textit{#4} \\
+}
+\newcommand{\tight}{\vspace{-2pt}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Kirolos Sedra}} \\
+\vspace{2pt}
+{\large \textbf{Associate Applications Engineer | RF, Lab Validation \& Test Automation}} \\
+\vspace{3pt}
+Waterloo, Ontario \textbar{} Relocatable across Canada \textbar{} +1 519-580-9685 \textbar{}
+\href{mailto:kasedra@proton.me}{kasedra@proton.me} \\
+\href{https://kirolos.dev}{kirolos.dev} \textbar{}
+\href{https://linkedin.com/in/kirolossedra}{linkedin.com/in/kirolossedra} \textbar{}
+\href{https://github.com/kirolossedra}{github.com/kirolossedra}
+\end{center}
+\vspace{-6pt}
+
+\section{Professional Summary}
+Applications engineer with an MASc in Electrical \& Computer Engineering and hands-on experience reproducing system failures in the lab, designing controlled experiments, characterizing RF/wireless behavior, automating test and provisioning workflows, and communicating results to customers and engineering partners. Performed VNA measurements for S11, coupling, and crosstalk; built TinySA-based spectrum/power measurement pipelines; and debugged systems across firmware, RF, networking, and cloud boundaries. Delivered customer demonstrations, trained engineers on reproducible test procedures, supported a 50-gateway deployment, and presented technical findings to Apple, Rogers, telecom partners, and mixed technical audiences.
+
+\section{Core Applications Engineering Skills}
+{\small
+\textbf{Customer / Applications:} issue reproduction, root-cause analysis, requirements discovery, qualification/validation support, technical demos, training, SOPs, stakeholder presentations, vendor/support coordination \\
+\textbf{RF / Signal Integrity / Lab:} VNA measurements (S11, coupling, crosstalk), TinySA spectrum analysis, USRP B210 SDR, RF attenuators, anechoic-chamber testing, RSSI/SNR/SINR/RSRP/RSRQ measurements \\
+\textbf{Test / Automation:} Python, automated data collection, test orchestration, hardware-triggered E2E testing, device provisioning, post-processing, visualization, real-time dashboards, repeatable validation flows \\
+\textbf{Embedded / Wireless:} C/C++, BLE, LTE/5G, Wi-Fi 6/6E, MQTT, nRF52/nRF91, ESP32, Raspberry Pi, Quectel UE, Zephyr/Nordic SDK \\
+\textbf{Networking / Integration:} TCP/IP, DNS, DHCP, RADIUS, SSH, Wireshark, tcpdump, ArubaOS/AirRecorder, AT/QMI, REST APIs, SQL, Azure IoT Hub, Azure CLI, Git, Docker, Linux
+}
+
+\section{Experience}
+\role{AquaSensing}{Sep 2024 -- Present}{Research Intern $\rightarrow$ Firmware Specialist / Product Engineer}{Waterloo, ON}
+\begin{itemize}
+  \item Worked across the complete smart-IoT path---sensor $\rightarrow$ BLE $\rightarrow$ gateway $\rightarrow$ LTE $\rightarrow$ MQTT $\rightarrow$ cloud $\rightarrow$ notification---reproducing and resolving failures across firmware, connectivity, backend, cloud, and user-facing behavior.
+  \item Prepared and ran an end-to-end demonstration for \textbf{12 Energy} using real sensors and gateways; the customer subsequently requested \textbf{50 gateways}. Helped provision the fleet across firmware, Azure IoT Hub identities/credentials, and SQL records while automating repeated device registration with \textbf{Azure CLI} and supporting deployment follow-up.
+  \item Led SDK migration testing and rollout; reproduced an \textbf{LTE reconnection failure} by forcing signal loss in an anechoic chamber, traced it to build configuration, validated recovery, and ran carrier experiments including a \textbf{10-SIM Bell/Jasper trial} before rejecting a migration that the evidence did not support.
+  \item Replaced a manual daily full-chain smoke test with an \textbf{ESP32 automated E2E test kit}, reusable subsystem stubs, and SOP \textbf{AQS-BLE-002}; trained \textbf{five engineers} so validation was reproducible and transferable rather than person-dependent.
+\end{itemize}
+\tight
+
+\role{University of Waterloo -- Apple \& Rogers Collaborations}{Sep 2024 -- Aug 2026}{Graduate Researcher, Wireless Sensors and Devices Lab}{Waterloo, ON}
+\begin{itemize}
+  \item Built and automated production-representative Wi-Fi test environments across Aruba, ASUS, and TP-Link infrastructure, combining DNS/DHCP/RADIUS services, SSH-managed devices, logging, RF instrumentation, and custom orchestration; reduced manual intervention by approximately \textbf{70\%}.
+  \item Built a \textbf{Raspberry Pi + TinySA} RF measurement pipeline for repeatable spectrum/power collection and frequency-time waterfall analysis; performed \textbf{VNA measurements for S11, coupling, and crosstalk} when characterizing RF behavior.
+  \item Challenged an apparent multi-second throughput ramp by questioning measurement granularity; used \textbf{tcpdump} to separate real transfer behavior from a 1 Hz reporting artifact and debugged across DUT, packet capture, RADIUS, Aruba OS/AirRecorder, WLAN infrastructure, and direct vendor support.
+  \item Presented progress weekly to \textbf{Apple and Rogers} stakeholders; built live-data views for mixed technical audiences and demonstrated a three-station BLE localization system using nRF52 receivers, directional antennas, firmware RSSI thresholds, and a real-time GUI to Apple executives.
+  \item Built/debugged a private \textbf{5G SA} environment using srsRAN, Open5GS, USRP B210, and Quectel UE; diagnosed registration/session issues and characterized latency, throughput, mobility, and \textbf{RSRP/RSRQ/SINR, MCS, and CQI}.
+\end{itemize}
+\tight
+
+\newpage
+\role{Ejada Systems}{Sep 2023 -- Aug 2024}{Software Engineer}{Full-time, Hybrid}
+\begin{itemize}
+  \item Delivered customer-specific Java/Spring banking APIs for \textbf{Al Rajhi Bank} inside a Newgen BPM $\rightarrow$ IBM ESB/middleware $\rightarrow$ backend $\rightarrow$ Microsoft SQL Server environment, progressing changes through Dev, SIT with customer data, and Production while coordinating with middleware teams and a bank-side consultant.
+  \item Debugged and refactored legacy services, improved measured SQL/data-access performance by approximately \textbf{30\%}, and helped establish a greenfield Emkan BNPL backend in a two-person core team with clear application and integration boundaries.
+\end{itemize}
+
+\role{University of Waterloo}{Feb 2025 -- Apr 2026}{Teaching Assistant}{Part-time, Contract}
+\begin{itemize}
+  \item Taught tutorials/labs, held office hours, and supported student troubleshooting for ECE 106, ECE 610 (networking/Mininet, two terms), and ECE 358; translated technical concepts into clear procedures and feedback for mixed skill levels.
+\end{itemize}
+
+\section{Education}
+\textbf{University of Waterloo} \hfill \textbf{Sep 2024 -- Aug 2026} \\
+\textit{MASc, Electrical \& Computer Engineering -- Pattern Analysis \& Machine Intelligence} \hfill \textit{92\% (A+)} \\
+Thesis: Experimental comparison of Wi-Fi 6 and 5G NSA/SA for mobile-robot communications; two peer-reviewed CCECE 2026 papers and conference presentations. \\
+\vspace{3pt}
+\textbf{Ain Shams University} \hfill \textbf{Sep 2018 -- Jul 2023} \\
+\textit{B.Sc., Computer \& Systems Engineering} \hfill \textit{CGPA 3.12/4.00} \\
+Graduation project: digital-twin self-driving system using Siemens Simcenter PreScan with RADAR, LiDAR, camera sensing, sensor fusion, and ROS integration/testing; project grade 4.00/4.00.
+
+\section{Selected Publications \& Technical Communication}
+\begin{itemize}
+  \item CCECE 2026 -- \textit{Scalability Analysis of Wi-Fi Broadcast Mechanisms Using Simulation and Hybrid Approaches}.
+  \item CCECE 2026 -- \textit{Trajectory-Based Performance Characterization of Wi-Fi for Outdoor Mobile Robot Teleoperation}.
+  \item Technical communication includes SOPs, validation procedures, conference presentations, executive demos, customer/partner discussions, training, and evidence-based deployment recommendations.
+\end{itemize}
+
+\end{document}
